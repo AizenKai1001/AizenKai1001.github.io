@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Portfolio</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Cursor Follower -->
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+      <svg viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          stroke="#fff"
+          stroke-width="8"
+          fill="none"
+        />
+      </svg>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">
+          <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span
+          ><span>o</span><span>l</span><span>i</span><span>o</span>
+        </div>
+        <ul class="menu">
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="particles">
+        <!-- Particles will be added dynamically with JS -->
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="highlight">Jancarlos Espinal</span></h1>
+          <p>
+            I'm a developer specializing in web & game design and development. I
+            strive to create , functional websites and good digital experiences.
+          </p>
+          <a href="#portfolio" class="btn">View My Work</a>
+          <a href="#contact" class="btn outline">Contact Me</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="ProfileImage.jpg"
+            alt="Profile Image of Jancarlos Espinal"
+            class="floating"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="about-image">
+        <img src="/api/placeholder/600/800" alt="About me" />
+      </div>
+      <div class="about-content">
+        <h3>About Me</h3>
+        <p>
+          As a passionate web and game developer, I'm driven by the desire to
+          create engaging and visually appealing experiences. Whether crafting
+          immersive game worlds or building intuitive web interfaces, I strive
+          to deliver friendly and polished products. My recent focus has been on
+          mastering Unreal Engine, where I've spent the last seven months
+          dedicated to game development, honing my skills and bringing my
+          visions to life. I believe in the power of interactive content to
+          connect people and create memorable moments, and I'm committed to
+          delivering high-quality, user-friendly experiences.
+        </p>
+        <p>
+          Beyond game development, my interests extend to the broader realm of
+          digital creation. I enjoy building dynamic websites, developing
+          helpful bots, and exploring the fascinating possibilities of AI. This
+          drive to expand my knowledge across various technological domains
+          fuels my creativity and allows me to approach projects with a
+          versatile skill set. I'm constantly seeking new challenges and
+          opportunities to learn, grow, and contribute to the ever-evolving
+          landscape of web and game development.
+        </p>
+        <div class="skills">
+          <div class="skill">
+            <div class="skill-name">
+              <span>HTML/CSS</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">
+              <span>JavaScript</span>
+              <span>35%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="35"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">
+              <span>React</span>
+              <span>30%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="30"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">
+              <span>UI/UX Design</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">
+              <span>Unreal Engine 5</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn">Let's Talk</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="section-title">
+        <h2>My Services</h2>
+        <p>
+          Here are the services I offer to help businesses and individuals
+          establish a strong digital presence.
+        </p>
+      </div>
+      <div class="services-container">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="service-content">
+            <h3>Web Development</h3>
+            <p>
+              Custom websites built from scratch using modern technologies and
+              best practices for optimal performance and user experience.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="service-content">
+            <h3>UI/UX Design</h3>
+            <p>
+              Engaging, intuitive interfaces designed with user experience at
+              the forefront, ensuring your visitors enjoy interacting with your
+              site.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="service-content">
+            <h3>Responsive Design</h3>
+            <p>
+              Websites that look and function beautifully across all devices,
+              from desktop computers to smartphones and tablets.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon custom-icon">
+            <!-- Custom image from URL instead of Font Awesome icon -->
+            <img
+              src="https://cdn2.unrealengine.com/ue-logotype-2023-vertical-white-1686x2048-bbfded26daa7.png"
+              alt="Unreal Engine Icon"
+            />
+          </div>
+          <div class="service-content">
+            <h3>Unreal Engine 5</h3>
+            <p>
+              Creating fun immersive and high quality games in Unreal Engine,
+              with advanced combat and high quality structured mechanics, for
+              all users to enjoy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+      <div class="section-title">
+        <h2>My Portfolio</h2>
+        <p>Here are some of my recent projects. Feel free to check them out!</p>
+      </div>
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Design</button>
+        <button class="filter-btn" data-filter="app">App Development</button>
+        <button class="filter-btn" data-filter="ui">UI/UX Design</button>
+      </div>
+      <div class="portfolio-gallery">
+        <div class="portfolio-item" data-category="web" data-delay="0">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 1"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>E-commerce Website</h3>
+            <p>Web Development, Shopify</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="app" data-delay="200">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 2"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>Fitness App</h3>
+            <p>App Development, React Native</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="ui" data-delay="400">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 3"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>Travel Platform</h3>
+            <p>UI/UX Design, Figma</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="web" data-delay="600">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 4"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>Corporate Website</h3>
+            <p>Web Development, WordPress</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="ui" data-delay="800">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 5"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>Dashboard Design</h3>
+            <p>UI/UX Design, Adobe XD</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="app" data-delay="1000">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Project 6"
+            class="portfolio-image"
+          />
+          <div class="portfolio-overlay">
+            <h3>Social Media App</h3>
+            <p>App Development, Flutter</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="portfolio-link" title="View Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>Feel free to contact me for any project or collaboration.</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Location</h4>
+              <p>Warwick, RI, USA</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>Jancarlos.espinal.gonzalez@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>+1 (401) 332-7073</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Website</h4>
+              <p>www.yourname.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/mvgkglgb"
+            method="POST"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="subject"
+                class="form-control"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                name="message"
+                class="form-control"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_gotcha" style="display: none" />
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+          <div id="form-message" class="mt-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
