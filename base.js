@@ -256,8 +256,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .get(url, { headers: { Accept: "application/json" } })
         .then(function (_ref) {
           var data = _ref.data;
-          if (data && data.info && data.info.banner) {
-            jsBotImg.src = data.info.banner;
+          if (data && data.info) {
+            if (data.info.banner) {
+              jsBotImg.src = data.info.banner;
+            } else if (data.info.avatar) {
+              jsBotImg.src = data.info.avatar;
+            }
           }
         })
         .catch(function () {
