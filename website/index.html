@@ -4,24 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Services - AizenKai</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../base.css" />
     <link rel="stylesheet" href="website.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Cursor Follower -->
     <div class="cursor-follower"></div>
 
-    <!-- Header -->
     <header>
       <nav>
         <a href="../index.html" class="logo">AizenKai</a>
         <ul class="menu">
           <li><a href="../index.html">Home</a></li>
-          <li><a href="discord.html">Discord</a></li>
-          <li><a href="website.html" class="active">Website</a></li>
-          <li><a href="unreal.html">Unreal</a></li>
+          <li><a href="../discord/">Discord</a></li>
+          <li><a href="../website/" class="active">Website</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
         </ul>
         <div class="mobile-toggle">
@@ -111,7 +114,10 @@
         </div>
         <div class="website-portfolio-grid">
           <div class="website-portfolio-item">
-            <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=E-commerce+Site" alt="E-commerce Site">
+            <img
+              src="https://placehold.co/600x400/1a1a1a/ffffff?text=E-commerce+Site"
+              alt="E-commerce Site"
+            />
             <div class="website-portfolio-overlay">
               <h3>E-commerce Platform</h3>
               <p>Full-featured online store</p>
@@ -119,7 +125,10 @@
             </div>
           </div>
           <div class="website-portfolio-item">
-            <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Business+Website" alt="Business Website">
+            <img
+              src="https://placehold.co/600x400/1a1a1a/ffffff?text=Business+Website"
+              alt="Business Website"
+            />
             <div class="website-portfolio-overlay">
               <h3>Business Website</h3>
               <p>Professional company site</p>
@@ -127,7 +136,10 @@
             </div>
           </div>
           <div class="website-portfolio-item">
-            <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Portfolio+Site" alt="Portfolio Site">
+            <img
+              src="https://placehold.co/600x400/1a1a1a/ffffff?text=Portfolio+Site"
+              alt="Portfolio Site"
+            />
             <div class="website-portfolio-overlay">
               <h3>Portfolio Website</h3>
               <p>Creative showcase site</p>
@@ -151,7 +163,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -159,9 +170,9 @@
             <h3>Quick Links</h3>
             <ul>
               <li><a href="../index.html">Home</a></li>
-              <li><a href="discord.html">Discord Services</a></li>
-              <li><a href="website.html">Website Services</a></li>
-              <li><a href="unreal.html">Unreal Services</a></li>
+              <li><a href="../discord/">Discord Services</a></li>
+              <li><a href="../website/">Website Services</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -186,12 +197,35 @@
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <a href="#" class="back-to-top">
       <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Link to external JavaScript file -->
-    <script src="../script.js"></script>
+    <div class="ai-chat-bubble" id="aiChatBubble" title="Chat with the AI">
+      <i class="fas fa-comments"></i>
+    </div>
+    <div class="ai-chat-panel" id="aiChatPanel">
+      <div class="ai-chat-header">
+        <div class="avatar">
+          <img id="aiChatAvatar" src="../images/bot_pfp.gif" alt="Bot Avatar" />
+        </div>
+        <div class="ai-chat-meta">
+          <span class="title">AI Chat</span>
+          <span class="subtitle" id="aiChatBotName">Bot Assistant</span>
+          <span class="pill">Personality: Gojo Satoru</span>
+        </div>
+      </div>
+      <div class="ai-chat-body" id="aiChatMessages">
+        <div class="ai-chat-msg system">Ask me anything about the work or your projects.</div>
+      </div>
+      <div class="ai-chat-input">
+        <textarea id="aiChatInput" placeholder="Type your message..." rows="2"></textarea>
+        <button class="ai-chat-send" id="aiChatSend">Send</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../ai-chat.js"></script>
+    <script src="../base.js"></script>
   </body>
-</html> 
+</html>

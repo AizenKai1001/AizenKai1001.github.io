@@ -1,0 +1,138 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  .discord-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .discord-hero h1 {
+    font-size: 2rem;
+  }
+
+  .service-badge {
+    font-size: 0.7rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive adjustments for hero section */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .hero-content,
+  .contact-container {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text,
+  .about-image,
+  .about-content,
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section {
+    padding: 80px 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-gallery {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .portfolio-filter {
+    padding: 0 20px;
+  }
+  
+  .portfolio-filter button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .ai-chat-panel {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .ai-chat-bubble {
+    right: 12px;
+    bottom: 16px;
+  }
+}

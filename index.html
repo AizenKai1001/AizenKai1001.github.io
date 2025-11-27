@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interactive Portfolio</title>
     <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="base.css" />
     <!-- Font Awesome for icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -42,9 +42,8 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="otherpages/discord.html" class="nav-link">Discord</a></li>
-          <li><a href="otherpages/website.html" class="nav-link">Web Dev</a></li>
-          <li><a href="otherpages/unreal.html" class="nav-link">Unreal</a></li>
+          <li><a href="discord/" class="nav-link">Discord</a></li>
+          <li><a href="website/" class="nav-link">Web Dev</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="mobile-toggle">
@@ -60,20 +59,30 @@
       </div>
       <div class="hero-content">
         <div class="hero-text">
-          <h1>Hi, I'm <span class="highlight">Jancarlos Espinal</span></h1>
+          <div class="eyebrow">Game & Web Developer</div>
+          <h1>Building digital worlds and high-performing web experiences.</h1>
           <p>
-            I'm a developer specializing in web & game design and development. I
-            strive to create , functional websites and good digital experiences.
+            I'm Jancarlos Espinal, crafting bold Unreal Engine projects, fast web experiences,
+            and Discord automations that keep communities moving.
           </p>
-          <a href="#portfolio" class="btn">View My Work</a>
-          <a href="#contact" class="btn outline">Contact Me</a>
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn">View my work</a>
+            <a href="#contact" class="btn outline">Book a project call</a>
+          </div>
+          <div class="hero-tags">
+            <span class="pill"><i class="fas fa-cube"></i>Unreal Engine 5</span>
+            <span class="pill"><i class="fas fa-bolt"></i>Fast web builds</span>
+            <span class="pill"><i class="fab fa-discord"></i>Discord ecosystems</span>
+            <span class="pill"><i class="fas fa-robot"></i>Bots & automation</span>
+          </div>
         </div>
         <div class="hero-image">
-          <img
-            src="ProfileImage.jpg"
-            alt="Profile Image of Jancarlos Espinal"
-            class="floating"
-          />
+          <div class="portrait-shell floating">
+            <img
+              src="ProfileImage.jpg"
+              alt="Profile Image of Jancarlos Espinal"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -174,7 +183,7 @@
               Custom websites built from scratch using modern technologies and
               best practices for optimal performance and user experience.
             </p>
-            <a href="otherpages/website.html" class="btn service-btn">Learn More</a>
+            <a href="website/" class="btn service-btn">Learn More</a>
           </div>
         </div>
         <div class="service-card">
@@ -187,25 +196,7 @@
               Custom Discord bot development and server setup services, creating engaging
               communities with automated moderation, music, and interactive features.
             </p>
-            <a href="otherpages/discord.html" class="btn service-btn">Learn More</a>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon custom-icon">
-            <!-- Custom image from URL instead of Font Awesome icon -->
-            <img
-              src="https://cdn2.unrealengine.com/ue-logotype-2023-vertical-white-1686x2048-bbfded26daa7.png"
-              alt="Unreal Engine Icon"
-            />
-          </div>
-          <div class="service-content">
-            <h3>Unreal Engine 5</h3>
-            <p>
-              Creating fun immersive and high quality games in Unreal Engine,
-              with advanced combat and high quality structured mechanics, for
-              all users to enjoy.
-            </p>
-            <a href="otherpages/unreal.html" class="btn service-btn">Learn More</a>
+            <a href="discord/" class="btn service-btn">Learn More</a>
           </div>
         </div>
       </div>
@@ -223,8 +214,8 @@
         <button class="filter-btn" data-filter="game">Games</button>
       </div>
       <div class="portfolio-gallery">
-        <a href="projects/xerox-bot.html" class="portfolio-item" data-category="discord" data-delay="0">
-          <img src="images/xerox-bot.jpg" alt="Xerox Bot" class="portfolio-image" />
+        <a href="projects/xerox-bot/" class="portfolio-item" data-category="discord" data-delay="0">
+          <img id="portfolio-xerox" src="images/bot_banner.gif" alt="Xerox Bot" class="portfolio-image" />
           <div class="portfolio-overlay">
             <h3>Xerox Bot</h3>
             <p>Discord Bot Development</p>
@@ -235,20 +226,20 @@
             </div>
           </div>
         </a>
-        <a href="https://veilborn-hub.com" class="portfolio-item" data-category="game" data-delay="0.2" target="_blank">
-          <img src="images/fps-gameplay1.jpg" alt="Project Zero" class="portfolio-image" />
+        <a href="projects/js-bot/" class="portfolio-item" data-category="discord" data-delay="0.3">
+          <img id="portfolio-jsbot" src="images/bot_banner.gif" alt="JavaScript Bot" class="portfolio-image" data-dynamic="jsbot-banner" />
           <div class="portfolio-overlay">
-            <h3>Project Zero</h3>
-            <p>FPS Shooter Game</p>
+            <h3>JavaScript Bot</h3>
+            <p>Live stats & automation</p>
             <div class="portfolio-links">
-              <span class="portfolio-link" title="Visit Website">
-                <i class="fas fa-external-link-alt"></i>
+              <span class="portfolio-link" title="View Details">
+                <i class="fas fa-link"></i>
               </span>
             </div>
           </div>
         </a>
         <a href="https://veilborn-hub.com" class="portfolio-item" data-category="game" data-delay="0.4" target="_blank">
-          <img src="images/survival-gameplay1.jpg" alt="VeilBorn" class="portfolio-image" />
+          <img src="images/Veilborn_logo (1).png" alt="VeilBorn" class="portfolio-image" />
           <div class="portfolio-overlay">
             <h3>VeilBorn</h3>
             <p>Survival Adventure Game</p>
@@ -374,7 +365,33 @@
       <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- AI Chat Bubble -->
+    <div class="ai-chat-bubble" id="aiChatBubble" title="Chat with the AI">
+      <i class="fas fa-comments"></i>
+    </div>
+    <div class="ai-chat-panel" id="aiChatPanel">
+      <div class="ai-chat-header">
+        <div class="avatar">
+          <img id="aiChatAvatar" src="images/bot_pfp.gif" alt="Bot Avatar" />
+        </div>
+        <div class="ai-chat-meta">
+          <span class="title">AI Chat</span>
+          <span class="subtitle" id="aiChatBotName">Bot Assistant</span>
+          <span class="pill">Personality: Gojo Satoru</span>
+        </div>
+      </div>
+      <div class="ai-chat-body" id="aiChatMessages">
+        <div class="ai-chat-msg system">Ask me anything about the work or your projects.</div>
+      </div>
+      <div class="ai-chat-input">
+        <textarea id="aiChatInput" placeholder="Type your message..." rows="2"></textarea>
+        <button class="ai-chat-send" id="aiChatSend">Send</button>
+      </div>
+    </div>
+
     <!-- Link to external JavaScript file -->
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="ai-chat.js"></script>
+    <script src="base.js"></script>
   </body>
 </html>

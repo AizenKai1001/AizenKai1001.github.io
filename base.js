@@ -241,5 +241,32 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     animateOnScroll();
   }, 500);
-});
 
+  // Dynamic JS Bot portfolio banner (homepage only)
+  (function () {
+    var jsBotImg = document.querySelector('[data-dynamic="jsbot-banner"]');
+    if (!jsBotImg || typeof axios === "undefined") return;
+
+    var endpoint = "https://webhooks.veilborn-hub.com/bot-stats?password=TestPassword12345";
+    var corsProxy = "https://corsproxy.io/?";
+
+    var loadData = function (url, attempt) {
+      if (attempt === void 0) attempt = "direct";
+      return axios
+        .get(url, { headers: { Accept: "application/json" } })
+        .then(function (_ref) {
+          var data = _ref.data;
+          if (data && data.info && data.info.banner) {
+            jsBotImg.src = data.info.banner;
+          }
+        })
+        .catch(function () {
+          if (attempt === "direct") {
+            return loadData(corsProxy + encodeURIComponent(url), "proxied");
+          }
+        });
+    };
+
+    loadData(endpoint);
+  })();
+});

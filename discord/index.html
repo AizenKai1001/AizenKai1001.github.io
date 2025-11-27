@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discord Services - AizenKai</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../base.css" />
     <link rel="stylesheet" href="discord.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Cursor Follower -->
@@ -18,7 +24,8 @@
       <nav>
         <div class="logo">
           <a href="../index.html">
-            <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span>
+            <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span
+            ><span>o</span><span>l</span><span>i</span><span>o</span>
           </a>
         </div>
         <ul class="menu">
@@ -26,9 +33,8 @@
           <li><a href="../index.html#about" class="nav-link">About</a></li>
           <li><a href="../index.html#services" class="nav-link">Services</a></li>
           <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="discord.html" class="nav-link">Discord</a></li>
-          <li><a href="website.html" class="nav-link">Web Dev</a></li>
-          <li><a href="unreal.html" class="nav-link">Unreal</a></li>
+          <li><a href="../discord/" class="nav-link">Discord</a></li>
+          <li><a href="../website/" class="nav-link">Web Dev</a></li>
           <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="mobile-toggle">
@@ -40,10 +46,15 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero discord-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/1a1a1a/ffffff?text=Discord+Services');">
+    <section
+      class="hero discord-hero"
+      style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/1a1a1a/ffffff?text=Discord+Services');"
+    >
       <div class="hero-content">
         <h1>Discord Services</h1>
-        <p>Transform your Discord server with professional bot development and server setup services</p>
+        <p>
+          Transform your Discord server with professional bot development and server setup services
+        </p>
         <a href="#services" class="btn">Explore Services</a>
       </div>
       <div class="hero-overlay"></div>
@@ -169,7 +180,10 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://placehold.co/1920x1080/1a1a1a/ffffff?text=Get+Started');">
+    <section
+      class="cta-section"
+      style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://placehold.co/1920x1080/1a1a1a/ffffff?text=Get+Started');"
+    >
       <div class="cta-content">
         <h2>Ready to Transform Your Discord Server?</h2>
         <p>Get started today and take your community to the next level</p>
@@ -203,7 +217,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 AizenKai. All rights reserved.</p>
+        <p>&copy; 2025 AizenKai. All rights reserved.</p>
       </div>
     </footer>
 
@@ -212,8 +226,34 @@
       <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Link to external JavaScript file -->
-    <script src="../script.js"></script>
+    <!-- AI Chat Bubble -->
+    <div class="ai-chat-bubble" id="aiChatBubble" title="Chat with the AI">
+      <i class="fas fa-comments"></i>
+    </div>
+    <div class="ai-chat-panel" id="aiChatPanel">
+      <div class="ai-chat-header">
+        <div class="avatar">
+          <img id="aiChatAvatar" src="../images/bot_pfp.gif" alt="Bot Avatar" />
+        </div>
+        <div class="ai-chat-meta">
+          <span class="title">AI Chat</span>
+          <span class="subtitle" id="aiChatBotName">Bot Assistant</span>
+          <span class="pill">Personality: Gojo Satoru</span>
+        </div>
+      </div>
+      <div class="ai-chat-body" id="aiChatMessages">
+        <div class="ai-chat-msg system">Ask me anything about the work or your projects.</div>
+      </div>
+      <div class="ai-chat-input">
+        <textarea id="aiChatInput" placeholder="Type your message..." rows="2"></textarea>
+        <button class="ai-chat-send" id="aiChatSend">Send</button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../ai-chat.js"></script>
+    <script src="../base.js"></script>
 
     <!-- Discord Portfolio Section -->
     <section class="discord-portfolio">
@@ -221,15 +261,17 @@
         <h2>Discord Portfolio</h2>
         <div class="discord-portfolio-grid">
           <div class="discord-portfolio-item">
-            <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Xerox+Bot" alt="Xerox Bot">
+            <img
+              src="https://placehold.co/600x400/1a1a1a/ffffff?text=Xerox+Bot"
+              alt="Xerox Bot"
+            />
             <div class="discord-portfolio-overlay">
               <h3>Xerox Bot</h3>
               <p>Custom moderation and utility bot</p>
             </div>
           </div>
-          <!-- Add more portfolio items as needed -->
         </div>
       </div>
     </section>
   </body>
-</html> 
+</html>
