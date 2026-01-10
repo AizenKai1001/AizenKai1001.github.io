@@ -1,6 +1,6 @@
 (function () {
   var aiChat = {
-    endpoint: "https://n8n.aizenkai-hub.com/webhook-test/Web-ai-Chat",
+    endpoint: "https://n8n.aizenkai-hub.com/webhook/Web-ai-Chat",
     password: "",
     statsEndpoint:
       "https://webhooks.veilborn-hub.com/bot-stats?password=TestPassword12345",
