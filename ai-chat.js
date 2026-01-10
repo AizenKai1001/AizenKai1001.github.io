@@ -1,7 +1,7 @@
 (function () {
   var aiChat = {
-    endpoint: "https://webhooks.veilborn-hub.com/ai-chat",
-    password: "TestPassword12345",
+    endpoint: "https://n8n.aizenkai-hub.com/webhook-test/Web-ai-Chat",
+    password: "",
     statsEndpoint:
       "https://webhooks.veilborn-hub.com/bot-stats?password=TestPassword12345",
     corsProxy: "https://corsproxy.io/?",
@@ -71,6 +71,7 @@
   }
 
   async function hydrateBotMeta() {
+    if (!aiChat.statsEndpoint) return;
     try {
       var { data } = await fetchWithProxy(aiChat.statsEndpoint);
       if (data?.info) {
@@ -101,20 +102,21 @@
       var { data } = await axios.post(
         aiChat.endpoint,
         {
-          prompt,
+          prompt: prompt,
           sessionId: aiChat.sessionId,
           username: "Website Visitor",
         },
         {
           headers: {
             "Content-Type": "application/json",
-            password: aiChat.password,
           },
         }
       );
 
       if (data?.reply) {
         appendMessage(data.reply, "ai", data.images);
+      } else if (data?.output) {
+        appendMessage(String(data.output), "ai");
       } else {
         appendMessage("No reply this time.", "system");
       }

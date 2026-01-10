@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Systems - AizenKai</title>
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="ai.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cursor-follower"></div>
+
+    <header>
+      <nav>
+        <a href="../index.html" class="logo">AizenKai</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../discord/">Discord</a></li>
+          <li><a href="../website/">Website</a></li>
+          <li><a href="../ai/" class="active">AI Systems</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <section class="ai-hero">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <span class="hero-kicker">Infrastructure-Led AI</span>
+          <h1>AI Systems & Automation</h1>
+          <p>
+            Engineered workflows that keep models accountable: containerized execution,
+            explicit tool boundaries, and orchestration that leaves an audit trail.
+          </p>
+          <div class="hero-buttons">
+            <a href="#stack" class="btn btn-primary">Explore the Stack</a>
+            <a href="../index.html#contact" class="btn btn-secondary">Work With Me</a>
+          </div>
+          <div class="hero-signals">
+            <div class="signal-item">
+              <img src="../images/docker-logo.png" alt="Docker logo" />
+              <span>Containerized</span>
+            </div>
+            <div class="signal-item">
+              <img src="../images/wrench.png" alt="MCP icon" />
+              <span>Structured Tools</span>
+            </div>
+            <div class="signal-item">
+              <img src="../images/N8n-logo.svg" alt="n8n logo" />
+              <span>Orchestrated</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="../images/docker-mcp.png"
+            alt="Docker MCP developer workflow diagram showing clients, servers, and tools"
+          />
+          <div class="hero-caption">Docker MCP Developer Workflow</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="ai-section stack-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Core Stack</span>
+          <h2>System Layers</h2>
+          <p>Each layer is designed for control, observability, and repeatable deployment.</p>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-card homelab-card">
+            <div class="card-top">
+              <h3>Homelab Backbone</h3>
+              <span class="card-tag">
+                <img src="../images/docker-logo.png" alt="Docker logo" />
+                Owned Infrastructure
+              </span>
+            </div>
+            <img
+              class="card-image homelab-image"
+              src="../images/Homelab-png.png"
+              alt="Homelab server stack inside a house"
+            />
+            <p>
+              Physical infrastructure anchors long-running services, versioned configs,
+              and isolated containers that move cleanly from build to deploy.
+            </p>
+          </article>
+          <article class="stack-card mcp-card">
+            <div class="card-top">
+              <h3>MCP Servers</h3>
+              <span class="card-tag subtle">Contracts + Controls</span>
+            </div>
+            <img class="card-image mcp-image" src="../images/mcp.avif" alt="MCP interface icon" />
+            <p>
+              Tool access is explicit and auditable, keeping AI reasoning separated
+              from execution with predictable, contract-based calls.
+            </p>
+          </article>
+          <article class="stack-card n8n-card stack-feature">
+            <div class="card-top">
+              <h3>n8n Orchestration</h3>
+              <span class="card-tag">
+                <img src="../images/N8n-logo.svg" alt="n8n logo" />
+                Event Routing
+              </span>
+            </div>
+            <img
+              class="card-image n8n-image"
+              src="../images/n8n-bigger-dif.png"
+              alt="n8n orchestration diagram with branching workflows"
+            />
+            <p>
+              Event-driven flows handle routing, retries, and branching logic so automation
+              stays deterministic and observable across services.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section model-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Model Layer</span>
+          <h2>Right Model, Right Job</h2>
+          <p>Routing keeps workloads fast, safe, and specialized without sacrificing traceability.</p>
+        </div>
+        <div class="model-grid">
+          <div class="model-panel">
+            <h3>Routing + Safety</h3>
+            <p>
+              Requests are dispatched by task type and latency needs, while guardrails
+              ensure outputs remain consistent and reviewable.
+            </p>
+            <div class="model-tags">
+              <span class="pill">
+                <img src="../images/OpenAI-white-monoblossom.png" alt="OpenAI logo" />
+                OpenAI
+              </span>
+              <span class="pill">
+                <img src="../images/icons8-gemini-ai-375.png" alt="Gemini logo" />
+                Gemini
+              </span>
+              <span class="pill">
+                <img src="../images/icons8-anthropic-96.png" alt="Anthropic logo" />
+                Anthropic
+              </span>
+              <span class="pill"><i class="fas fa-cubes"></i>Open-source</span>
+            </div>
+          </div>
+          <div class="model-panel highlight">
+            <div class="model-media">
+              <img class="model-image" src="../images/mcp.avif" alt="MCP abstract icon" />
+            </div>
+            <div>
+              <h3>Tool Contracts</h3>
+              <p>
+                MCP keeps tool execution structured with explicit contracts, logging,
+                and tightly scoped access for reliable automation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section rag-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">RAG Layer</span>
+          <h2>Retrieval-Augmented Grounding</h2>
+          <p>Context is pulled from curated sources so answers stay factual, scoped, and auditable.</p>
+        </div>
+        <div class="rag-grid">
+          <div class="rag-visual">
+            <img src="../images/RAG-detail.png" alt="RAG flow detail diagram" />
+          </div>
+          <div class="rag-copy">
+            <h3>How RAG Works Here</h3>
+            <p>
+              Queries retrieve relevant documents, route them through scoring and filtering,
+              and attach the best context to model prompts. The result is grounded answers
+              that cite known sources, avoid hallucinations, and keep responses aligned to
+              your stack and data boundaries.
+            </p>
+            <p>
+              This layer pairs with MCP tooling to ensure every retrieval, filter, and response
+              remains observable and repeatable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section workflow-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Workflow Examples</span>
+          <h2>Automation in Motion</h2>
+          <p>Each workflow begins with a trigger and resolves with a logged, controlled outcome.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-card">
+            <div class="workflow-top">
+              <img class="workflow-icon" src="../images/webhook-icon.png" alt="Webhook trigger icon" />
+              <img
+                class="workflow-brand"
+                src="../images/Discord-Symbol-Blurple.png"
+                alt="Discord logo"
+              />
+            </div>
+            <h3>Discord Automation</h3>
+            <p>
+              Triggered moderation, routing, and response generation with structured handoffs
+              between AI and execution layers.
+            </p>
+          </article>
+          <article class="workflow-card">
+            <div class="workflow-top">
+              <img class="workflow-icon" src="../images/webhook-icon.png" alt="Webhook trigger icon" />
+            </div>
+            <h3>Web Chat Pipelines</h3>
+            <p>
+              Front-end chat flows normalized through deterministic routing, guardrails,
+              and response logging.
+            </p>
+          </article>
+          <article class="workflow-card">
+            <div class="workflow-top">
+              <img class="workflow-icon" src="../images/webhook-icon.png" alt="Webhook trigger icon" />
+            </div>
+            <h3>Ops + Monitoring</h3>
+            <p>
+              Alerts and summaries generated from system events with retriable workflows
+              and traceable outcomes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Execution Plan</span>
+          <h2>How I Work</h2>
+          <p>Clear steps, measurable outcomes, and high-signal delivery checkpoints.</p>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Discovery</h3>
+              <p>Define goals, data sources, and success criteria.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Design</h3>
+              <p>Map workflows, tools, and model routing strategies.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Build</h3>
+              <p>Implement MCP tools, n8n flows, and test integrations.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>Launch</h3>
+              <p>Deploy, monitor, and iterate with clear logs and metrics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section ai-cta">
+      <div class="cta-content">
+        <h2>Ready to build a smarter workflow?</h2>
+        <p>Let's design an AI system that fits your stack and your goals.</p>
+        <a href="../index.html#contact" class="btn btn-large">Contact Me</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>AizenKai</h3>
+          <p>AI systems, automation, and developer tools.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="../index.html">Home</a>
+          <a href="../discord/">Discord</a>
+          <a href="../website/">Web Dev</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h3>Social</h3>
+          <div class="social-links">
+            <a href="https://www.tiktok.com/@veilborndev" class="social-link" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/jancarlos-espinal-858441344"
+              class="social-link"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://github.com/AizenKai1001" class="social-link" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <p>&copy; 2025 Jancarlos Espinal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../base.js"></script>
+  </body>
+</html>
