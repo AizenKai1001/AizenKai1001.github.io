@@ -117,10 +117,15 @@
 
     loadersList.innerHTML = loaders
       .map(function (loader) {
+        var name = loader && loader.name ? loader.name : loader;
+        var description =
+          loader && loader.description ? loader.description : "Bootstrap module active";
         return (
           '\n            <div class="command-category">\n              <h3>' +
-          loader +
-          '</h3>\n              <ul>\n                <li>Bootstrap module active</li>\n              </ul>\n            </div>\n          '
+          name +
+          "</h3>\n              <ul>\n                <li>" +
+          description +
+          "</li>\n              </ul>\n            </div>\n          "
         );
       })
       .join("");
@@ -135,10 +140,15 @@
 
     eventsList.innerHTML = events
       .map(function (ev) {
+        var name = ev && ev.name ? ev.name : ev;
+        var description =
+          ev && ev.description ? ev.description : "Active gateway event listener";
         return (
           '\n            <div class="command-category">\n              <h3>' +
-          ev +
-          '</h3>\n              <ul>\n                <li>Active gateway event listener</li>\n              </ul>\n            </div>\n          '
+          name +
+          "</h3>\n              <ul>\n                <li>" +
+          description +
+          "</li>\n              </ul>\n            </div>\n          "
         );
       })
       .join("");
@@ -153,10 +163,15 @@
 
     extrasList.innerHTML = extras
       .map(function (ex) {
+        var name = ex && ex.name ? ex.name : ex;
+        var description =
+          ex && ex.description ? ex.description : "Additional module loaded";
         return (
           '\n            <div class="command-category">\n              <h3>' +
-          ex +
-          '</h3>\n              <ul>\n                <li>Additional module loaded</li>\n              </ul>\n            </div>\n          '
+          name +
+          "</h3>\n              <ul>\n                <li>" +
+          description +
+          "</li>\n              </ul>\n            </div>\n          "
         );
       })
       .join("");
@@ -180,7 +195,7 @@
     botId.textContent =
       "ID: " +
       (info.id || "N/A") +
-      " • Created: " +
+      " | Created: " +
       (info.createdAt ? new Date(info.createdAt).toDateString() : "N/A");
 
     var hero = document.querySelector(".project-hero");
@@ -201,7 +216,7 @@
     uptimeText.textContent = data.uptime || "Live";
     memoryText.textContent =
       memory.heapUsed && memory.rss
-        ? memory.heapUsed + " heap • " + memory.rss + " rss"
+        ? memory.heapUsed + " heap | " + memory.rss + " rss"
         : "Live";
 
     serverCount.textContent = servers.length;
@@ -253,3 +268,5 @@
 
   loadData(endpoint);
 })();
+
+
