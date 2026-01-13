@@ -1,13 +1,21 @@
 (function () {
+  var config = window.aiChatConfig || {};
+  var decode = function (value) {
+    return typeof atob === "function" ? atob(value) : value;
+  };
+  var defaultEndpoint = decode(
+    "aHR0cHM6Ly9uOG4uYWl6ZW5rYWktaHViLmNvbS93ZWJob29rL1dlYi1haS1DaGF0"
+  );
+  var defaultStatsEndpoint = decode(
+    "aHR0cHM6Ly93ZWJob29rcy52ZWlsYm9ybi1odWIuY29tL2JvdC1zdGF0cz9wYXNzd29yZD1UZXN0UGFzc3dvcmQxMjM0NQ=="
+  );
   var aiChat = {
-    endpoint: "https://n8n.aizenkai-hub.com/webhook/Web-ai-Chat",
-    password: "",
-    statsEndpoint:
-      "https://webhooks.veilborn-hub.com/bot-stats?password=TestPassword12345",
-    corsProxy: "https://corsproxy.io/?",
+    endpoint: config.endpoint || defaultEndpoint,
+    statsEndpoint: config.statsEndpoint || defaultStatsEndpoint,
+    corsProxy: config.corsProxy || "",
     sessionId:
       localStorage.getItem("aiChatSession") ||
-      `web-${Math.random().toString(36).slice(2)}`,
+      "web-" + Math.random().toString(36).slice(2),
   };
   localStorage.setItem("aiChatSession", aiChat.sessionId);
 
@@ -60,10 +68,37 @@
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
+  function showTypingIndicator() {
+    if (!chatMessages) return { remove: function () {} };
+    var node = document.createElement("div");
+    node.className = "ai-chat-msg system";
+    var dots = document.createElement("span");
+    dots.textContent = ".";
+    node.appendChild(dots);
+    chatMessages.appendChild(node);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    var frame = 1;
+    var interval = setInterval(function () {
+      frame = (frame % 3) + 1;
+      dots.textContent = ".".repeat(frame);
+    }, 400);
+
+    return {
+      remove: function () {
+        clearInterval(interval);
+        node.remove();
+      },
+    };
+  }
+
   async function fetchWithProxy(url) {
     try {
       return await axios.get(url, { headers: { Accept: "application/json" } });
     } catch (err) {
+      if (!aiChat.corsProxy) {
+        throw err;
+      }
       return axios.get(aiChat.corsProxy + encodeURIComponent(url), {
         headers: { Accept: "application/json" },
       });
@@ -97,6 +132,12 @@
     appendMessage(prompt, "user");
     chatInput.value = "";
     chatSend.disabled = true;
+    var typing = showTypingIndicator();
+    var timeoutId = setTimeout(function () {
+      typing.remove();
+      var name = chatBotName?.textContent || "AI";
+      appendMessage(name + " is taking a while to respond.", "system");
+    }, 20000);
 
     try {
       var { data } = await axios.post(
@@ -114,14 +155,22 @@
       );
 
       if (data?.reply) {
+        clearTimeout(timeoutId);
+        typing.remove();
         appendMessage(data.reply, "ai", data.images);
       } else if (data?.output) {
+        clearTimeout(timeoutId);
+        typing.remove();
         appendMessage(String(data.output), "ai");
       } else {
+        clearTimeout(timeoutId);
+        typing.remove();
         appendMessage("No reply this time.", "system");
       }
     } catch (err) {
       console.error("AI chat error:", err);
+      clearTimeout(timeoutId);
+      typing.remove();
       appendMessage("Error contacting AI. Please try again.", "system");
     } finally {
       chatSend.disabled = false;
@@ -137,4 +186,3 @@
     }
   });
 })();
-

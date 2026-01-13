@@ -3,43 +3,50 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function () {
   // Preloader
-  setTimeout(function () {
-    document.querySelector(".preloader").classList.add("fade-out");
-  }, 1500);
+  var preloader = document.querySelector(".preloader");
+  if (preloader) {
+    setTimeout(function () {
+      preloader.classList.add("fade-out");
+    }, 1500);
+  }
 
   // Particles
   var particlesContainer = document.querySelector(".particles");
-  for (let i = 0; i < 50; i++) {
-    var particle = document.createElement("div");
-    particle.classList.add("particle");
-    particle.style.width = Math.random() * 15 + 5 + "px";
-    particle.style.height = particle.style.width;
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.top = Math.random() * 100 + "%";
-    particle.style.backgroundColor = `rgba(${Math.floor(
-      Math.random() * 255
-    )}, ${Math.floor(Math.random() * 255)}, ${Math.floor(
-      Math.random() * 255
-    )}, 0.5)`;
-    particle.style.animationDuration = Math.random() * 10 + 5 + "s";
-    particle.style.animationDelay = Math.random() * 5 + "s";
-    particlesContainer.appendChild(particle);
+  if (particlesContainer) {
+    for (let i = 0; i < 50; i++) {
+      var particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.width = Math.random() * 15 + 5 + "px";
+      particle.style.height = particle.style.width;
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.top = Math.random() * 100 + "%";
+      particle.style.backgroundColor = `rgba(${Math.floor(
+        Math.random() * 255
+      )}, ${Math.floor(Math.random() * 255)}, ${Math.floor(
+        Math.random() * 255
+      )}, 0.5)`;
+      particle.style.animationDuration = Math.random() * 10 + 5 + "s";
+      particle.style.animationDelay = Math.random() * 5 + "s";
+      particlesContainer.appendChild(particle);
+    }
   }
 
   // Custom Cursor
   var cursor = document.querySelector(".cursor-follower");
-  document.addEventListener("mousemove", function (e) {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-  });
+  if (cursor) {
+    document.addEventListener("mousemove", function (e) {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
 
-  document.addEventListener("mousedown", function () {
-    cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
-  });
+    document.addEventListener("mousedown", function () {
+      cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
+    });
 
-  document.addEventListener("mouseup", function () {
-    cursor.style.transform = "translate(-50%, -50%) scale(1)";
-  });
+    document.addEventListener("mouseup", function () {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+  }
 
   // Header scroll effect
   window.addEventListener("scroll", function () {
@@ -47,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var backToTop = document.querySelector(".back-to-top");
 
     if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-      backToTop.classList.add("active");
+      header?.classList.add("scrolled");
+      backToTop?.classList.add("active");
     } else {
-      header.classList.remove("scrolled");
-      backToTop.classList.remove("active");
+      header?.classList.remove("scrolled");
+      backToTop?.classList.remove("active");
     }
 
     // Check for elements to animate on scroll
@@ -62,10 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var mobileToggle = document.querySelector(".mobile-toggle");
   var menu = document.querySelector(".menu");
 
-  mobileToggle.addEventListener("click", function () {
-    menu.classList.toggle("active");
-    this.classList.toggle("active");
-  });
+  if (mobileToggle && menu) {
+    mobileToggle.addEventListener("click", function () {
+      menu.classList.toggle("active");
+      this.classList.toggle("active");
+    });
+  }
 
   // Smooth scrolling for nav links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -76,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Close mobile menu if open
-      if (menu.classList.contains("active")) {
+      if (menu && menu.classList.contains("active")) {
         menu.classList.remove("active");
-        mobileToggle.classList.remove("active");
+        mobileToggle?.classList.remove("active");
       }
     });
   });
