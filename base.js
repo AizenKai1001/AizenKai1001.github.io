@@ -258,6 +258,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var endpoint = "https://webhooks.veilborn-hub.com/bot-stats?password=TestPassword12345";
     var corsProxy = "https://corsproxy.io/?";
+    var storageKey = "jsbot:bot-stats-cache";
+
+    var saveCache = function (data) {
+      try {
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify({ data: data, cachedAt: new Date().toISOString() })
+        );
+      } catch (e) {
+        // Ignore cache failures.
+      }
+    };
+
+    var loadCache = function () {
+      try {
+        var raw = localStorage.getItem(storageKey);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (e) {
+        return null;
+      }
+    };
+
+    var applyCachedBanner = function () {
+      var cached = loadCache();
+      var info = cached && cached.data ? cached.data.info : null;
+      if (!info) return;
+      if (info.banner) {
+        jsBotImg.src = info.banner;
+      } else if (info.avatar) {
+        jsBotImg.src = info.avatar;
+      }
+    };
 
     var loadData = function (url, attempt) {
       if (attempt === void 0) attempt = "direct";
@@ -265,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .get(url, { headers: { Accept: "application/json" } })
         .then(function (_ref) {
           var data = _ref.data;
+          saveCache(data);
           if (data && data.info) {
             if (data.info.banner) {
               jsBotImg.src = data.info.banner;
@@ -277,6 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (attempt === "direct") {
             return loadData(corsProxy + encodeURIComponent(url), "proxied");
           }
+          applyCachedBanner();
         });
     };
 

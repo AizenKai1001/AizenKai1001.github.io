@@ -178,6 +178,9 @@
   };
 
   var hydrate = function (data) {
+    if (!data) {
+      return;
+    }
     var info = data.info || {};
     var status = data.status || "unknown";
     var servers = data.servers || [];
@@ -235,8 +238,43 @@
     renderExtras(extras);
   };
 
+  var storageKey = "jsbot:bot-stats-cache";
+  var saveCache = function (data) {
+    try {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify({ data: data, cachedAt: new Date().toISOString() })
+      );
+    } catch (e) {
+      // Ignore cache failures (private mode, storage limits).
+    }
+  };
+
+  var loadCache = function () {
+    try {
+      var raw = localStorage.getItem(storageKey);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      return null;
+    }
+  };
+
+  var applyOfflineFallback = function () {
+    var cached = loadCache();
+    if (cached && cached.data) {
+      var fallback = Object.assign({}, cached.data, {
+        status: "offline"
+      });
+      hydrate(fallback);
+      return;
+    }
+    renderStatus("offline");
+  };
+
   var showFailure = function (msg) {
-    statusPill.textContent = "Status unavailable";
+    statusPill.textContent = "Bot offline";
+    statusPill.style.background = "var(--warning-color)";
     var failure =
       '\n          <div class="command-category">\n            <h3>Could not load live data</h3>\n            <ul>\n              <li>' +
       msg +
@@ -253,19 +291,26 @@
       .get(url, { headers: { Accept: "application/json" } })
       .then(function (_ref) {
         var data = _ref.data;
-        return hydrate(data);
+        hydrate(data);
+        saveCache(data);
+        return;
       })
       .catch(function (err) {
         if (attempt === "direct") {
           return loadData(corsProxy + encodeURIComponent(url), "proxied");
         }
+        applyOfflineFallback();
         showFailure(
-          "Please refresh to retry. If running locally, CORS may block the request until the API enables CORS."
+          "Live data unavailable. Showing cached stats when possible. Please refresh to retry."
         );
         console.error("Live data load failed:", err);
       });
   };
 
+  var cached = loadCache();
+  if (cached && cached.data) {
+    hydrate(cached.data);
+  }
   loadData(endpoint);
 })();
 
