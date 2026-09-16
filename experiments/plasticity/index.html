@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta name="color-scheme" content="light dark">
+  <script>// Inlined before styles by the page builder to avoid a light flash on dark visits.
+(() => {
+  let saved;
+  let motion = null;
+  try {
+    saved = localStorage.getItem('research-theme');
+    motion = localStorage.getItem('research-motion') === 'playing' ? 'playing' : null;
+  } catch { /* Storage can be disabled without disabling the site. */ }
+  try {
+    const request = new URL(location.href).searchParams.get('motion');
+    if (request === 'play') motion = 'playing';
+    if (request === 'pause') motion = 'paused';
+    if (request === 'system') motion = null;
+  } catch { /* Optional playback link. */ }
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const root = document.documentElement;
+  root.dataset.theme = saved === 'light' || saved === 'dark' ? saved : dark ? 'dark' : 'light';
+  root.dataset.motion = motion === 'paused' ? 'paused' : motion !== 'playing' && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#101914' : '#f2f0e9');
+})();
+</script>
+  <title>Plasticity Bench — Jancarlos Espinal</title>
+  <meta name="description" content="A NumPy test bench for learning across changing tasks, including a three-condition, 400-task comparison and a useful negative result.">
+  <link rel="canonical" href="https://aizenkai1001.github.io/experiments/plasticity/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Plasticity Bench — Jancarlos Espinal">
+  <meta property="og:description" content="A NumPy test bench for learning across changing tasks, including a three-condition, 400-task comparison and a useful negative result.">
+  <meta property="og:url" content="https://aizenkai1001.github.io/experiments/plasticity/">
+  <meta property="og:image" content="https://aizenkai1001.github.io/media/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/experience.css">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <link rel="stylesheet" href="/src/lab.css">
+  <script type="module" src="/src/main.js"></script></head><body class="detail-page" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="identity" href="/" aria-label="Jancarlos Espinal, home">
+      <span class="monogram" aria-hidden="true">je<span>✳</span></span>
+      <span class="identity-text">Jancarlos Espinal<small>AI experiments & research</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/#experiments">Experiments</a><a href="/projects/">Workbench</a><a href="/research/">Research</a><a href="/lab/">Homelab</a><a href="/credits/">Credits</a>
+      <a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-icon" aria-hidden="true"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.2 14.2A8.5 8.5 0 0 1 9.8 3.8a8.5 8.5 0 1 0 10.4 10.4Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></span><span class="theme-label">Dark</span></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </header>
+    <main id="main">
+      <section class="detail-hero wrap"><a class="back-link mono" href="/#experiments">← All experiments</a><div class="detail-kicker"><span class="mono">EXPERIMENT 04 / Continual learning</span><span class="status"><i aria-hidden="true"></i>Measured experiment</span></div><h1>Plasticity Bench</h1><p class="detail-question">When does a network lose the ability to keep learning?</p><ul class="tech-tags"><li>Python</li><li>NumPy</li><li>Controlled benchmarks</li></ul></section>
+      <div class="detail-image wrap">
+  <div class="plasticity-visual" role="img" aria-label="Plasticity Bench: late-to-early final loss ratio, backpropagation 0.62, reset 1.10, continual backpropagation 0.57. 400-task Adam run. A ratio below 1 means later tasks had lower loss.">
+    <div class="chart-header"><span class="mono">PLASTICITY / 400 TASKS</span><span class="chart-key">Late ÷ early loss</span></div>
+    <div class="chart-bars">
+      <div class="chart-bar-row"><span>Backprop</span><div class="chart-track"><i style="--bar:51.67%"></i></div><b>0.62×</b></div>
+      <div class="chart-bar-row"><span>Reset</span><div class="chart-track"><i style="--bar:91.67%"></i></div><b>1.10×</b></div>
+      <div class="chart-bar-row"><span>Continual BP</span><div class="chart-track"><i style="--bar:47.5%"></i></div><b>0.57×</b></div>
+    </div>
+    <div class="chart-caption"><span class="small-dot"></span> The expected performance loss did not appear.</div>
+    <span class="chart-footnote">Selected conditions · lower means better later-task learning</span>
+  </div></div>
+      <div class="article-layout wrap"><aside class="article-aside"><span class="mono">EXPERIMENT NOTES</span><p>Small regression tasks · not a replication at paper scale</p><span class="mono">REVIEWED</span><p>September 15, 2026</p><a href="#credits" class="text-link">Sources & credit <span aria-hidden="true">↗</span></a><a href="/#contact" class="text-link">Discuss this work <span aria-hidden="true">↗</span></a></aside><article class="article-body"><p class="article-intro">Plasticity Bench tests how a network adapts to a sequence of tasks. Backpropagation is implemented directly so the update rule is visible, and all comparison arms receive matched task sequences and seeds.</p><section><h2>The comparison</h2><p>Smaller experiments compare ordinary backpropagation, full reinitialization, weight decay, continual backpropagation, and a frozen-feature control. The featured 400-task Adam run uses three conditions: backpropagation, reinitialization, and continual backpropagation. Each receives the same seeded sequence of permuted tasks.</p></section><section><h2>The negative result</h2><p>Loss of plasticity did not appear in the tested configurations: ordinary backpropagation learned later tasks better. In the 400-task Adam/permuted run, the late-to-early loss ratio was 0.62×. Lower means the last ten tasks had lower final loss than the first ten.</p></section><section><h2>The distinction that matters</h2><p>That same run developed roughly 18% inactive units and a lower effective representation rank. Those internal changes did not translate into worse task performance in this setting. The observation separates an apparent mechanism from the behavioral claim it is supposed to explain.</p></section><section><h2>Limits of this result</h2><p>This is a small regression benchmark, not a refutation of the published loss-of-plasticity result. Hundreds rather than thousands of tasks, task-family transfer, and implementation differences limit the comparison. Fresh teachers, classification tasks, and separate retention tests are proposed next steps.</p></section><div class="evidence-note"><span class="mono">EVIDENCE & SCOPE</span><p>Plasticity Bench measured result, September 9, 2026; seeded NumPy experiment records in the local project.</p><p>These are personal project results. Tests and implementation reviews are not independent scientific replication. The project’s current source and lab data remain local unless a public source is explicitly linked below.</p></div><section class="source-block" id="credits"><div class="source-block-head"><span class="mono">SOURCES & CREDIT</span><h2>Built on the work of others</h2></div><div class="source-list"><div class="source-item"><span class="mono">01</span><div><a href="https://www.nature.com/articles/s41586-024-07711-7" target="_blank" rel="noopener noreferrer">Shibhansh Dohare and collaborators — Loss of plasticity in deep continual learning <span aria-hidden="true">↗</span></a><p>Paper motivating the experiment and continual-backpropagation comparison. This smaller regression study did not reproduce the headline effect.</p></div></div><div class="source-item"><span class="mono">02</span><div><a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy contributors <span aria-hidden="true">↗</span></a><p>Numerical array library used by the local experiment.</p></div></div></div></section><div class="article-links"><a class="button button-outline" href="/evidence/plasticity.json">Recorded 400-task run (JSON) <span aria-hidden="true">↗</span></a><a class="button button-outline" href="/notes/negative-results/">Read the negative-result note <span aria-hidden="true">↗</span></a><a class="button button-outline" href="https://www.nature.com/articles/s41586-024-07711-7" target="_blank" rel="noopener noreferrer">Related paper: Loss of plasticity <span aria-hidden="true">↗</span></a></div></article></div>
+      <section class="detail-next wrap"><span class="mono">KEEP EXPLORING</span><a href="/experiments/evoforge/">EvoForge <span aria-hidden="true">↗</span></a></section>
+    </main>
+  <footer class="site-footer wrap">
+    <a class="footer-signature" href="/">Jancarlos Espinal<span>Always a work in progress.</span></a>
+    <div class="footer-links"><a href="/projects/">Workbench <span aria-hidden="true">↗</span></a><a href="/research/">Research <span aria-hidden="true">↗</span></a><a href="/lab/">Homelab <span aria-hidden="true">↗</span></a><a href="/credits/">Credits <span aria-hidden="true">↗</span></a><a href="https://github.com/AizenKai1001" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="mailto:Jancarlos.espinal.gonzalez@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+    <div class="footer-bottom"><p>© 2026 · Made with curiosity.</p><div class="motion-settings"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause page animations"><span aria-hidden="true">Ⅱ</span> Pause motion</button><button class="motion-reset" type="button" title="Use your device's motion preference">Use device setting</button></div></div>
+  </footer></body></html>

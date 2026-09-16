@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "project": "Plasticity Bench",
+  "evidenceDate": "2026-09-09",
+  "sources": [
+    {
+      "basename": "results-long.json",
+      "recordedDate": "2026-09-09",
+      "fileModifiedDateUtc": "2026-09-10"
+    }
+  ],
+  "scope": {
+    "taskCount": 400,
+    "stepsPerTask": 600,
+    "batchSize": 32,
+    "inputDimensions": 20,
+    "hiddenUnits": 100,
+    "optimizer": "adam",
+    "learningRate": 0.001,
+    "taskMode": "permute",
+    "seed": 20260909,
+    "arms": [
+      "backprop",
+      "cbp",
+      "reset"
+    ],
+    "armCount": 3,
+    "benchmark": "Small continual-learning regression benchmark; three matched arms in this exact 400-task run.",
+    "limitation": "This is not a paper-scale replication. A ratio below 1 means later tasks ended with lower loss than early tasks in this run."
+  },
+  "results": {
+    "backprop": {
+      "firstTenFinalLossMean": 0.02146159928049183,
+      "lastTenFinalLossMean": 0.01337772183504462,
+      "lateToEarlyLossRatio": 0.6233329427227124,
+      "diagnostics": {
+        "firstTask": {
+          "task": 0,
+          "deadUnitFraction": 0,
+          "meanAbsoluteWeight": 0.1501324938860555,
+          "effectiveRank": 53.85920133561323
+        },
+        "lastTask": {
+          "task": 399,
+          "deadUnitFraction": 0.185,
+          "meanAbsoluteWeight": 0.12237185491889851,
+          "effectiveRank": 36.009241569903
+        }
+      }
+    },
+    "cbp": {
+      "firstTenFinalLossMean": 0.021525130883732126,
+      "lastTenFinalLossMean": 0.012339754459646237,
+      "lateToEarlyLossRatio": 0.5732719827024213,
+      "diagnostics": {
+        "firstTask": {
+          "task": 0,
+          "deadUnitFraction": 0,
+          "meanAbsoluteWeight": 0.1491934371326558,
+          "effectiveRank": 54.24564924828076
+        },
+        "lastTask": {
+          "task": 399,
+          "deadUnitFraction": 0,
+          "meanAbsoluteWeight": 0.10011534044337893,
+          "effectiveRank": 47.619390740804185
+        }
+      }
+    },
+    "reset": {
+      "firstTenFinalLossMean": 0.041109783439989195,
+      "lastTenFinalLossMean": 0.04522704877629197,
+      "lateToEarlyLossRatio": 1.1001529317787098,
+      "diagnostics": {
+        "firstTask": {
+          "task": 0,
+          "deadUnitFraction": 0,
+          "meanAbsoluteWeight": 0.14863426838357938,
+          "effectiveRank": 49.565006776287916
+        },
+        "lastTask": {
+          "task": 399,
+          "deadUnitFraction": 0,
+          "meanAbsoluteWeight": 0.14686143456968884,
+          "effectiveRank": 52.44569557015619
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+/* Original concept artwork; color values follow the existing light/dark palette. */
+.hardware-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.hardware-card { border:1px solid var(--line); border-radius:5px; overflow:hidden; background:var(--paper-light); }
+.hardware-art { position:relative; background:radial-gradient(ellipse at 50% 45%,var(--scene-aura),transparent 74%),var(--panel); border-bottom:1px solid var(--line); min-height:270px; padding:10px 16px 30px; overflow:hidden; }
+.hardware-art-label { position:absolute; bottom:14px; left:24px; color:var(--muted); font-size:7px; letter-spacing:.07em; }
+.lab-illustration { width:100%; height:auto; max-height:360px; display:block; overflow:visible; }
+.lab-grid { stroke:var(--line); stroke-width:.7; opacity:.25; }
+.lab-shadow { fill:var(--ink); opacity:.07; }
+.lab-case { fill:#304e40; stroke:#70917d; stroke-width:1.2; }
+.lab-case-side { fill:#243b31; stroke:#577264; stroke-width:1; }
+.lab-case-top { fill:#496959; stroke:#7c9a87; stroke-width:1; }
+.lab-unit { fill:#456654; stroke:#839782; stroke-width:.9; }
+.lab-drive,.lab-chip { fill:#14291f; stroke:#698073; stroke-width:1; }
+.lab-vents { stroke:#95ae97; stroke-width:1.2; }
+.lab-button { fill:#afbfa8; }
+.lab-led,.lab-packets { fill:var(--copper); }
+.lab-screw { fill:#152b21; stroke:#c1c4a8; stroke-width:1.5; }
+.lab-metal { fill:#c2c9b8; stroke:#8d9e90; stroke-width:1.2; }
+.storage-line { stroke:#799981; stroke-width:1.4; }
+.lab-wire { stroke:var(--copper); stroke-width:4; stroke-linecap:round; }
+.lab-wire-secondary { stroke:#355947; stroke-width:4; stroke-linecap:round; }
+.lab-pcb { fill:#377252; stroke:#a9b391; stroke-width:1.5; }
+.lab-contact { fill:#caad72; stroke:#8f7751; stroke-width:1; }
+.board-traces { stroke:#9acb82; stroke-width:1.4; }
+.lab-chip-mark { fill:#2e4739; stroke:#57765f; }
+.chip-pins { stroke:#cbd2c2; stroke-width:2; }
+.lab-speaker-rim { fill:#203d2e; stroke:#8a9e84; stroke-width:2; }
+.lab-speaker-cone { fill:#45634d; stroke:#7c9271; stroke-width:1.5; }
+.speaker-diaphragm { fill:#162f20; stroke:#718a66; stroke-width:1.2; transform-origin:0 -43px; }
+.lab-sound-rings { stroke:var(--copper); stroke-width:1; opacity:.35; transform-origin:0 -43px; }
+.lab-signal-line { stroke:var(--copper); stroke-width:2; stroke-linecap:round; }
+.hardware-copy { padding:30px; }
+.hardware-kicker { display:block; color:var(--copper); font-size:8px; margin-bottom:17px; }
+.hardware-copy h3 { font:400 38px/1.08 var(--serif); letter-spacing:-.025em; margin-bottom:20px; }
+.hardware-copy h3 a { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; }
+.hardware-copy h3 a > span { font:24px/1.3 var(--sans); flex-shrink:0; }
+.hardware-copy h3 a:hover { color:var(--copper); }
+.hardware-copy > p { font-size:12px; color:var(--muted); line-height:1.85; }
+.hardware-card-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:20px; margin-top:24px; border-top:1px solid var(--line); }
+.hardware-card-footer > span { font:8px var(--mono); color:var(--muted); }
+.hardware-card-footer .text-link { font-size:10px; }
+.lab-page .hardware-section { padding-top:20px; }
+.lab-page .hardware-section > .section-heading { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+.lab-page .hardware-section > .archive-cta { display:none; }
+.lab-practice { padding-block:55px; border-block:1px solid var(--line); }
+.lab-practice > h2 { font-size:clamp(38px,4vw,57px); line-height:1.1; }
+.lab-practice-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:42px; }
+.lab-practice-grid .mono { font-size:8px; color:var(--copper); }
+.lab-practice-grid h3 { font-size:20px; letter-spacing:-.025em; margin-block:15px 11px; }
+.lab-practice-grid p { font-size:12px; color:var(--muted); line-height:1.85; }
+.lab-link-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.lab-project-link { border:1px solid var(--line); background:var(--paper-light); border-radius:4px; padding:26px; transition:border-color .25s,background .25s; }
+.lab-project-link:hover { border-color:var(--copper); background:var(--panel); }
+.lab-project-link .mono { font-size:8px; text-transform:uppercase; color:var(--copper); }
+.lab-project-link h3 { display:flex; justify-content:space-between; align-items:center; gap:14px; font-size:25px; letter-spacing:-.04em; margin-block:17px; }
+.lab-project-link p { color:var(--muted); font-size:12px; line-height:1.85; }
+.lab-scope-note { font-size:10px; color:var(--muted); max-width:850px; margin-top:32px; padding-top:22px; border-top:1px solid var(--line); line-height:1.8; }
+.archive-art .lab-illustration { height:100%; }
+.banner-signature .lab-illustration { max-height:320px; }
+html[data-theme=dark] .lab-shadow { opacity:.3; }
+html[data-theme=dark] .lab-case { fill:#365242; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-led { animation:lab-led-breathe 2.7s ease-in-out infinite; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .led-1 { animation-delay:-.9s; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .led-2 { animation-delay:-1.8s; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-packets rect { animation:lab-packet-flow 2s ease-in-out infinite; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-packets .packet-1 { animation-delay:-.5s; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-packets .packet-2 { animation-delay:-1s; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-packets .packet-3 { animation-delay:-1.5s; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .speaker-diaphragm { animation:lab-speaker-motion .8s ease-in-out infinite; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-sound-rings { animation:lab-speaker-rings 2s ease-out infinite; }
+.js[data-motion=full]:not([data-page-hidden=true]) .hardware-card.ambient-visible .lab-signal-line { stroke-dasharray:180 200; animation:lab-wave-travel 4s linear infinite; }
+@keyframes lab-led-breathe { 50% { opacity:.45; } }
+@keyframes lab-packet-flow { 50% { opacity:.15; } }
+@keyframes lab-speaker-motion { 50% { transform:scale(.94,1.05); } }
+@keyframes lab-speaker-rings { 0% { opacity:.5; transform:scale(.95); } 100% { opacity:0; transform:scale(1.13); } }
+@keyframes lab-wave-travel { to { stroke-dashoffset:-380; } }
+@media(max-width:1000px) { .hardware-copy { padding:24px; } .hardware-copy h3 { font-size:34px; } .hardware-art { min-height:230px; padding-inline:6px; } }
+@media(max-width:700px) { .hardware-grid,.lab-link-grid { grid-template-columns:1fr; } .hardware-copy h3 { font-size:36px; } .lab-practice-grid { grid-template-columns:1fr; gap:27px; } .lab-practice-grid h3 { margin-top:11px; } .hardware-art { min-height:0; } .lab-intro h1 { font-size:65px; } }
+@media(max-width:380px) { .hardware-copy { padding:21px; } .hardware-copy h3 { font-size:31px; } .hardware-kicker { font-size:7px; line-height:1.7; } .lab-project-link { padding:22px; } .lab-project-link h3 { font-size:23px; } .lab-intro h1 { font-size:58px; } }

@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta name="color-scheme" content="light dark">
+  <script>// Inlined before styles by the page builder to avoid a light flash on dark visits.
+(() => {
+  let saved;
+  let motion = null;
+  try {
+    saved = localStorage.getItem('research-theme');
+    motion = localStorage.getItem('research-motion') === 'playing' ? 'playing' : null;
+  } catch { /* Storage can be disabled without disabling the site. */ }
+  try {
+    const request = new URL(location.href).searchParams.get('motion');
+    if (request === 'play') motion = 'playing';
+    if (request === 'pause') motion = 'paused';
+    if (request === 'system') motion = null;
+  } catch { /* Optional playback link. */ }
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const root = document.documentElement;
+  root.dataset.theme = saved === 'light' || saved === 'dark' ? saved : dark ? 'dark' : 'light';
+  root.dataset.motion = motion === 'paused' ? 'paused' : motion !== 'playing' && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#101914' : '#f2f0e9');
+})();
+</script>
+  <title>ForgeGrad — Jancarlos Espinal</title>
+  <meta name="description" content="A compact autograd engine, neural-network layers, optimizers, and a looped GPT built to make the internals inspectable.">
+  <link rel="canonical" href="https://aizenkai1001.github.io/experiments/forgegrad/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ForgeGrad — Jancarlos Espinal">
+  <meta property="og:description" content="A compact autograd engine, neural-network layers, optimizers, and a looped GPT built to make the internals inspectable.">
+  <meta property="og:url" content="https://aizenkai1001.github.io/experiments/forgegrad/">
+  <meta property="og:image" content="https://aizenkai1001.github.io/media/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/experience.css">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <link rel="stylesheet" href="/src/lab.css">
+  <script type="module" src="/src/main.js"></script></head><body class="detail-page" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="identity" href="/" aria-label="Jancarlos Espinal, home">
+      <span class="monogram" aria-hidden="true">je<span>✳</span></span>
+      <span class="identity-text">Jancarlos Espinal<small>AI experiments & research</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/#experiments">Experiments</a><a href="/projects/">Workbench</a><a href="/research/">Research</a><a href="/lab/">Homelab</a><a href="/credits/">Credits</a>
+      <a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-icon" aria-hidden="true"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.2 14.2A8.5 8.5 0 0 1 9.8 3.8a8.5 8.5 0 1 0 10.4 10.4Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></span><span class="theme-label">Dark</span></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </header>
+    <main id="main">
+      <section class="detail-hero wrap"><a class="back-link mono" href="/#experiments">← All experiments</a><div class="detail-kicker"><span class="mono">EXPERIMENT 06 / Deep-learning internals</span><span class="status"><i aria-hidden="true"></i>Verified implementation</span></div><h1>ForgeGrad</h1><p class="detail-question">What does it take to build the machinery of learning?</p><ul class="tech-tags"><li>Python</li><li>NumPy</li><li>Autograd</li></ul></section>
+      <div class="detail-image wrap"><div class="diagram-visual"><span class="mono">Deep-learning internals / CONCEPTUAL OVERVIEW</span><div class="diagram-path"><span>Forward</span><i aria-hidden="true">→</i><span>Loss</span><i aria-hidden="true">→</i><span>Backward</span></div><p>gradients checked against a PyTorch reference</p></div></div>
+      <div class="article-layout wrap"><aside class="article-aside"><span class="mono">EXPERIMENT NOTES</span><p>An educational framework and small memorization test</p><span class="mono">REVIEWED</span><p>September 15, 2026</p><a href="#credits" class="text-link">Sources & credit <span aria-hidden="true">↗</span></a><a href="/#contact" class="text-link">Discuss this work <span aria-hidden="true">↗</span></a></aside><article class="article-body"><p class="article-intro">ForgeGrad rebuilds the essential mechanics of a deep-learning framework in a small codebase: tensors, a computation graph, reverse-mode differentiation, layers, optimizers, and a weight-tied looped transformer.</p><section><h2>An inspectable backward pass</h2><p>The engine implements broadcasting-aware gradients, a topological backward pass, activations, cross-entropy, embeddings, and normalization. NumPy is the default array backend; a CuPy backend is included as an optional path.</p></section><section><h2>What was verified</h2><p>The project records checks for 20 operations and an end-to-end multilayer perceptron against PyTorch gradients, with maximum error around 1e-7. A small looped GPT lowers loss from 3.47 to 0.008 on a fixed memorization batch. This verifies a training path, not general language ability.</p></section><section><h2>Keep the scope small</h2><p>The framework is for understanding and experimentation. It does not claim the breadth, performance, distributed training, or compiler infrastructure of a production framework. The repeated transformer core is a depth experiment, not evidence that more loops always improve reasoning.</p></section><section><h2>Design references</h2><p>The project acknowledges micrograd for its autograd design, tinygrad for a compact operation set, and recurrent-depth language-model work for the looped core. PyTorch acts as a verification reference rather than the implementation of the engine.</p></section><div class="evidence-note"><span class="mono">EVIDENCE & SCOPE</span><p>ForgeGrad README, autograd/training/GPT verification records, and the associated implementation note in the research vault.</p><p>These are personal project results. Tests and implementation reviews are not independent scientific replication. The project’s current source and lab data remain local unless a public source is explicitly linked below.</p></div><section class="source-block" id="credits"><div class="source-block-head"><span class="mono">SOURCES & CREDIT</span><h2>Built on the work of others</h2></div><div class="source-list"><div class="source-item"><span class="mono">01</span><div><a href="https://github.com/karpathy/micrograd" target="_blank" rel="noopener noreferrer">Andrej Karpathy — micrograd <span aria-hidden="true">↗</span></a><p>Autograd design and teaching reference acknowledged by the project.</p></div></div><div class="source-item"><span class="mono">02</span><div><a href="https://github.com/tinygrad/tinygrad" target="_blank" rel="noopener noreferrer">tinygrad contributors <span aria-hidden="true">↗</span></a><p>Reference for a compact differentiable operation set.</p></div></div><div class="source-item"><span class="mono">03</span><div><a href="https://pytorch.org/" target="_blank" rel="noopener noreferrer">PyTorch contributors <span aria-hidden="true">↗</span></a><p>Gradient reference used in verification tests; distinct from the local framework implementation.</p></div></div><div class="source-item"><span class="mono">04</span><div><a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy contributors <span aria-hidden="true">↗</span></a><p>Default array-computation backend.</p></div></div></div></section><div class="article-links"><a class="button button-outline" href="/#notebook">Back to the research notebook <span aria-hidden="true">↗</span></a></div></article></div>
+      <section class="detail-next wrap"><span class="mono">KEEP EXPLORING</span><a href="/experiments/distinction/">Distinction AI <span aria-hidden="true">↗</span></a></section>
+    </main>
+  <footer class="site-footer wrap">
+    <a class="footer-signature" href="/">Jancarlos Espinal<span>Always a work in progress.</span></a>
+    <div class="footer-links"><a href="/projects/">Workbench <span aria-hidden="true">↗</span></a><a href="/research/">Research <span aria-hidden="true">↗</span></a><a href="/lab/">Homelab <span aria-hidden="true">↗</span></a><a href="/credits/">Credits <span aria-hidden="true">↗</span></a><a href="https://github.com/AizenKai1001" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="mailto:Jancarlos.espinal.gonzalez@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+    <div class="footer-bottom"><p>© 2026 · Made with curiosity.</p><div class="motion-settings"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause page animations"><span aria-hidden="true">Ⅱ</span> Pause motion</button><button class="motion-reset" type="button" title="Use your device's motion preference">Use device setting</button></div></div>
+  </footer></body></html>

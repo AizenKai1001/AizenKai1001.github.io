@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta name="color-scheme" content="light dark">
+  <script>// Inlined before styles by the page builder to avoid a light flash on dark visits.
+(() => {
+  let saved;
+  let motion = null;
+  try {
+    saved = localStorage.getItem('research-theme');
+    motion = localStorage.getItem('research-motion') === 'playing' ? 'playing' : null;
+  } catch { /* Storage can be disabled without disabling the site. */ }
+  try {
+    const request = new URL(location.href).searchParams.get('motion');
+    if (request === 'play') motion = 'playing';
+    if (request === 'pause') motion = 'paused';
+    if (request === 'system') motion = null;
+  } catch { /* Optional playback link. */ }
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const root = document.documentElement;
+  root.dataset.theme = saved === 'light' || saved === 'dark' ? saved : dark ? 'dark' : 'light';
+  root.dataset.motion = motion === 'paused' ? 'paused' : motion !== 'playing' && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#101914' : '#f2f0e9');
+})();
+</script>
+  <title>DOOMFLY experiments — Jancarlos Espinal</title>
+  <meta name="description" content="Connectome-based simulation, visual inputs, and plasticity experiments inside a ViZDoom environment.">
+  <link rel="canonical" href="https://aizenkai1001.github.io/experiments/doomfly/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DOOMFLY experiments — Jancarlos Espinal">
+  <meta property="og:description" content="Connectome-based simulation, visual inputs, and plasticity experiments inside a ViZDoom environment.">
+  <meta property="og:url" content="https://aizenkai1001.github.io/experiments/doomfly/">
+  <meta property="og:image" content="https://aizenkai1001.github.io/media/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/experience.css">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <link rel="stylesheet" href="/src/lab.css">
+  <script type="module" src="/src/main.js"></script></head><body class="detail-page" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="identity" href="/" aria-label="Jancarlos Espinal, home">
+      <span class="monogram" aria-hidden="true">je<span>✳</span></span>
+      <span class="identity-text">Jancarlos Espinal<small>AI experiments & research</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/#experiments">Experiments</a><a href="/projects/">Workbench</a><a href="/research/">Research</a><a href="/lab/">Homelab</a><a href="/credits/">Credits</a>
+      <a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-icon" aria-hidden="true"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.2 14.2A8.5 8.5 0 0 1 9.8 3.8a8.5 8.5 0 1 0 10.4 10.4Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></span><span class="theme-label">Dark</span></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </header>
+    <main id="main">
+      <section class="detail-hero wrap"><a class="back-link mono" href="/#experiments">← All experiments</a><div class="detail-kicker"><span class="mono">EXPERIMENT 02 / Embodied intelligence</span><span class="status"><i aria-hidden="true"></i>Experimental</span></div><h1>DOOMFLY experiments</h1><p class="detail-question">Does changing a brain actually change what it learns?</p><ul class="tech-tags"><li>Python</li><li>ViZDoom</li><li>C++</li></ul></section>
+      <div class="detail-image wrap"><div class="capture doomfly-capture"><img src="/media/doomfly.webp" alt="A recorded ViZDoom game frame used in the upstream DOOMFLY project." width="1400" height="875" loading="lazy" decoding="async"><span class="capture-caption">ViZDoom frame · upstream DOOMFLY asset <span aria-hidden="true">↗</span></span></div></div>
+      <div class="article-layout wrap"><aside class="article-aside"><span class="mono">EXPERIMENT NOTES</span><p>Experiments built on the open-source DOOMFLY project</p><span class="mono">REVIEWED</span><p>September 15, 2026</p><a href="#credits" class="text-link">Sources & credit <span aria-hidden="true">↗</span></a><a href="/#contact" class="text-link">Discuss this work <span aria-hidden="true">↗</span></a></aside><article class="article-body"><p class="article-intro">This work investigates an embodied neural simulation: visual input from a game enters a retained fruit-fly connectome model, activity propagates through the graph, and selected outputs become game controls. My portfolio presents the experiments and engineering around that system, with credit to the upstream project.</p><section><h2>A visible experimental loop</h2><p>The system connects real ViZDoom frames, modeled neural activity, a fixed output-to-button mapping, and a spectator interface. This makes it possible to inspect input, activity, and behavior together rather than judge the experiment from a game score alone.</p></section><section><h2>The research focus</h2><p>The local work covers sensory inputs, runtime and viewer improvements, plasticity experiments, and validation controls. A dopamine-gated candidate changes an existing subset of connections during play. That mechanism can be implemented correctly without producing a useful learned behavior.</p></section><section><h2>What remains unresolved</h2><p>The documented v6 learning candidate failed its visual, conditioning, and survival validation gates. Changing weights or surviving longer is not presented as demonstrated learning. The value of this experiment is the testable loop and the ability to locate failed assumptions.</p></section><section><h2>Attribution</h2><p>DOOMFLY is an upstream open-source project published under nftechie/doomfly. This page describes a local experimental implementation and research work around it; it does not claim sole authorship of the upstream code, connectome datasets, or ViZDoom.</p></section><div class="evidence-note"><span class="mono">EVIDENCE & SCOPE</span><p>Local DOOMFLY README and sensory/improvement experiment records. Scientific status reviewed September 15, 2026.</p><p>These are personal project results. Tests and implementation reviews are not independent scientific replication. The project’s current source and lab data remain local unless a public source is explicitly linked below.</p></div><section class="source-block" id="credits"><div class="source-block-head"><span class="mono">SOURCES & CREDIT</span><h2>Built on the work of others</h2></div><div class="source-list"><div class="source-item"><span class="mono">01</span><div><a href="https://github.com/nftechie/doomfly" target="_blank" rel="noopener noreferrer">nftechie / DOOMFLY <span aria-hidden="true">↗</span></a><p>Upstream project and source of the game-frame image. The portfolio covers local experiments and engineering around this code.</p></div></div><div class="source-item"><span class="mono">02</span><div><a href="https://github.com/Farama-Foundation/ViZDoom" target="_blank" rel="noopener noreferrer">ViZDoom authors &amp; Farama Foundation <span aria-hidden="true">↗</span></a><p>Doom-based research environment. Engine and game artwork retain their original ownership and notices.</p></div></div><div class="source-item"><span class="mono">03</span><div><a href="https://github.com/nftechie/doomfly/blob/main/THIRD_PARTY.md" target="_blank" rel="noopener noreferrer">DOOMFLY dataset and third-party attribution <span aria-hidden="true">↗</span></a><p>Credits for the MaleCNS reconstruction, biological modeling references, game components, and other upstream materials.</p></div></div></div></section><div class="article-links"><a class="button button-outline" href="https://github.com/nftechie/doomfly" target="_blank" rel="noopener noreferrer">Upstream DOOMFLY repository <span aria-hidden="true">↗</span></a></div></article></div>
+      <section class="detail-next wrap"><span class="mono">KEEP EXPLORING</span><a href="/experiments/forgelab/">ForgeLab <span aria-hidden="true">↗</span></a></section>
+    </main>
+  <footer class="site-footer wrap">
+    <a class="footer-signature" href="/">Jancarlos Espinal<span>Always a work in progress.</span></a>
+    <div class="footer-links"><a href="/projects/">Workbench <span aria-hidden="true">↗</span></a><a href="/research/">Research <span aria-hidden="true">↗</span></a><a href="/lab/">Homelab <span aria-hidden="true">↗</span></a><a href="/credits/">Credits <span aria-hidden="true">↗</span></a><a href="https://github.com/AizenKai1001" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="mailto:Jancarlos.espinal.gonzalez@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+    <div class="footer-bottom"><p>© 2026 · Made with curiosity.</p><div class="motion-settings"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause page animations"><span aria-hidden="true">Ⅱ</span> Pause motion</button><button class="motion-reset" type="button" title="Use your device's motion preference">Use device setting</button></div></div>
+  </footer></body></html>

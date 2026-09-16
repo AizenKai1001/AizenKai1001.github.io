@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "project": "Distinction AI",
+  "evidenceDate": "2026-09-15",
+  "sources": [
+    {
+      "basename": "benchmark.json",
+      "recordedDate": "2026-09-15",
+      "fileModifiedDateUtc": "2026-09-16"
+    },
+    {
+      "basename": "controls.json",
+      "recordedDate": "2026-09-15",
+      "fileModifiedDateUtc": "2026-09-16"
+    }
+  ],
+  "scope": {
+    "evaluatorVersion": "synthetic-gates-1",
+    "trainingSeeds": [
+      29,
+      47,
+      83,
+      101,
+      137
+    ],
+    "trainingStepsPerSeed": 160,
+    "benchmark": "Tiny author-built synthetic visual/action generator with engineered perception measurements.",
+    "limitation": "Evidence for learning over supplied features; not autonomous object discovery, unrestricted vision, or general intelligence."
+  },
+  "benchmark": {
+    "heldOutVisual": {
+      "n": 480,
+      "correct": 480,
+      "accuracy": 1,
+      "noMotionBaseline": {
+        "n": 480,
+        "correct": 347,
+        "accuracy": 0.7229166666666667
+      }
+    },
+    "suppliedLagMemory": {
+      "withHistory": {
+        "n": 320,
+        "correct": 320,
+        "accuracy": 1
+      },
+      "withoutHistory": {
+        "n": 320,
+        "correct": 160,
+        "accuracy": 0.5
+      }
+    },
+    "finitePoolInquiry": {
+      "trials": 5,
+      "informative": 5,
+      "fraction": 1
+    },
+    "checkpointContinuationEqual": true
+  },
+  "controls": {
+    "protocol": "matched-scenes-actions-and-paired-appearance-controls-1",
+    "seeds": [
+      211,
+      307,
+      401
+    ],
+    "casesPerSeed": 96,
+    "pairedExam": "24 matched scene pairs x 2 statuses x 2 actions = 96 cases per learner; all test palettes/shapes held out from training.",
+    "noMotionBaselineAccuracy": 0.75,
+    "maskedDeterministicCeiling": 0.75,
+    "aggregate": {
+      "fullMeasurementsAccuracy": 1,
+      "contactMeasurementRemovedAccuracy": 0.75,
+      "shuffledTrainingOutcomesAccuracy": 0.625
+    },
+    "perSeed": [
+      {
+        "seed": 211,
+        "steps": 160,
+        "fullMeasurements": {
+          "n": 96,
+          "correct": 96,
+          "accuracy": 1,
+          "balancedAccuracy": 1,
+          "brier": 0.000046380387923319775
+        },
+        "contactMeasurementRemoved": {
+          "n": 96,
+          "correct": 72,
+          "accuracy": 0.75,
+          "balancedAccuracy": 0.7777777777777778,
+          "brier": 0.24181417238667183
+        },
+        "shuffledTrainingOutcomes": {
+          "n": 96,
+          "correct": 72,
+          "accuracy": 0.75,
+          "balancedAccuracy": 0.7361111111111112,
+          "brier": 0.24695168419448255
+        }
+      },
+      {
+        "seed": 307,
+        "steps": 160,
+        "fullMeasurements": {
+          "n": 96,
+          "correct": 96,
+          "accuracy": 1,
+          "balancedAccuracy": 1,
+          "brier": 0.00003810394756896823
+        },
+        "contactMeasurementRemoved": {
+          "n": 96,
+          "correct": 72,
+          "accuracy": 0.75,
+          "balancedAccuracy": 0.75,
+          "brier": 0.2116419101590535
+        },
+        "shuffledTrainingOutcomes": {
+          "n": 96,
+          "correct": 36,
+          "accuracy": 0.375,
+          "balancedAccuracy": 0.5,
+          "brier": 0.5915356002503458
+        }
+      },
+      {
+        "seed": 401,
+        "steps": 160,
+        "fullMeasurements": {
+          "n": 96,
+          "correct": 96,
+          "accuracy": 1,
+          "balancedAccuracy": 1,
+          "brier": 0.00003810394756896823
+        },
+        "contactMeasurementRemoved": {
+          "n": 96,
+          "correct": 72,
+          "accuracy": 0.75,
+          "balancedAccuracy": 0.513888888888889,
+          "brier": 0.22693024105769366
+        },
+        "shuffledTrainingOutcomes": {
+          "n": 96,
+          "correct": 72,
+          "accuracy": 0.75,
+          "balancedAccuracy": 0.75,
+          "brier": 0.22730317242070222
+        }
+      }
+    ],
+    "limitation": "Tiny author-built synthetic task. Random-label chance performance varies; this is a control, not an expected exact 50% assertion."
+  }
+}

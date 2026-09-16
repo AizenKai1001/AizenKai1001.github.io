@@ -1,0 +1,32 @@
+{
+  "name": "jancarlos-research-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jancarlos Espinal's AI experiments and research notebook",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "prepare:pages": "node scripts/render-pages.mjs",
+    "dev": "npm run prepare:pages && vite --host 127.0.0.1 --port 4173 --strictPort",
+    "build": "npm run prepare:pages && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "check": "node scripts/check-content.mjs",
+    "test:browser": "node scripts/check-site.mjs",
+    "test:experience": "node scripts/check-experience.mjs",
+    "test:motion": "node scripts/check-visible-motion.mjs",
+    "test:expansion": "node scripts/check-expansion.mjs",
+    "check:sources": "node scripts/check-source-links.mjs",
+    "test:lab": "node scripts/check-lab.mjs",
+    "check:publication": "node scripts/check-publication.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "playwright": "^1.62.1",
+    "vite": "6.4.3"
+  }
+}

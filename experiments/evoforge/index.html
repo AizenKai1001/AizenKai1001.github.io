@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta name="color-scheme" content="light dark">
+  <script>// Inlined before styles by the page builder to avoid a light flash on dark visits.
+(() => {
+  let saved;
+  let motion = null;
+  try {
+    saved = localStorage.getItem('research-theme');
+    motion = localStorage.getItem('research-motion') === 'playing' ? 'playing' : null;
+  } catch { /* Storage can be disabled without disabling the site. */ }
+  try {
+    const request = new URL(location.href).searchParams.get('motion');
+    if (request === 'play') motion = 'playing';
+    if (request === 'pause') motion = 'paused';
+    if (request === 'system') motion = null;
+  } catch { /* Optional playback link. */ }
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const root = document.documentElement;
+  root.dataset.theme = saved === 'light' || saved === 'dark' ? saved : dark ? 'dark' : 'light';
+  root.dataset.motion = motion === 'paused' ? 'paused' : motion !== 'playing' && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#101914' : '#f2f0e9');
+})();
+</script>
+  <title>EvoForge — Jancarlos Espinal</title>
+  <meta name="description" content="A persistent artificial-life world with evolving neural policies, population dynamics, and controls for within-lifetime learning.">
+  <link rel="canonical" href="https://aizenkai1001.github.io/experiments/evoforge/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EvoForge — Jancarlos Espinal">
+  <meta property="og:description" content="A persistent artificial-life world with evolving neural policies, population dynamics, and controls for within-lifetime learning.">
+  <meta property="og:url" content="https://aizenkai1001.github.io/experiments/evoforge/">
+  <meta property="og:image" content="https://aizenkai1001.github.io/media/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/experience.css">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <link rel="stylesheet" href="/src/lab.css">
+  <script type="module" src="/src/main.js"></script></head><body class="detail-page" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="identity" href="/" aria-label="Jancarlos Espinal, home">
+      <span class="monogram" aria-hidden="true">je<span>✳</span></span>
+      <span class="identity-text">Jancarlos Espinal<small>AI experiments & research</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/#experiments">Experiments</a><a href="/projects/">Workbench</a><a href="/research/">Research</a><a href="/lab/">Homelab</a><a href="/credits/">Credits</a>
+      <a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-icon" aria-hidden="true"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.2 14.2A8.5 8.5 0 0 1 9.8 3.8a8.5 8.5 0 1 0 10.4 10.4Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></span><span class="theme-label">Dark</span></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </header>
+    <main id="main">
+      <section class="detail-hero wrap"><a class="back-link mono" href="/#experiments">← All experiments</a><div class="detail-kicker"><span class="mono">EXPERIMENT 05 / Artificial life</span><span class="status"><i aria-hidden="true"></i>Research prototype</span></div><h1>EvoForge</h1><p class="detail-question">What changes when a population can learn and evolve?</p><ul class="tech-tags"><li>TypeScript</li><li>Neuroevolution</li><li>Canvas</li></ul></section>
+      <div class="detail-image wrap"><div class="diagram-visual"><span class="mono">Artificial life / CONCEPTUAL OVERVIEW</span><div class="diagram-path"><span>Sense</span><i aria-hidden="true">→</i><span>Act</span><i aria-hidden="true">→</i><span>Evolve</span></div><p>plasticity-on versus plasticity-off controls</p></div></div>
+      <div class="article-layout wrap"><aside class="article-aside"><span class="mono">EXPERIMENT NOTES</span><p>No demonstrated fitness benefit from lifetime plasticity</p><span class="mono">REVIEWED</span><p>September 15, 2026</p><a href="#credits" class="text-link">Sources & credit <span aria-hidden="true">↗</span></a><a href="/#contact" class="text-link">Discuss this work <span aria-hidden="true">↗</span></a></aside><article class="article-body"><p class="article-intro">EvoForge is a persistent simulation of populations that sense, act, consume resources, reproduce, and mutate. Neural policies are inherited across generations, while the world and its population can be saved and resumed.</p><section><h2>The working system</h2><p>The TypeScript runtime steps the artificial-life world, records its state, and streams a browser visualization. The local work includes egocentric sensing, ecology and lineage mechanics, two-timescale plasticity, and instrumentation for long-running comparisons.</p></section><section><h2>Testing the learning claim</h2><p>The recorded 14-run, 18,000-tick sweep did not establish a fitness separation between plasticity enabled and disabled. A promising older-versus-younger comparison was also confounded by survivorship: the plasticity-off control produced an even larger ratio.</p></section><section><h2>What I take from it</h2><p>Persistence, population growth, and a changing neural policy are implemented behaviors. They do not by themselves measure intelligence. The next useful test needs a within-lifetime change in the correct action, so learning can be separated from inherited policy and survival bias.</p></section><div class="evidence-note"><span class="mono">EVIDENCE & SCOPE</span><p>EvoForge build log, v0.10/v0.11 instrumentation and controlled-sweep results, reviewed September 15, 2026.</p><p>These are personal project results. Tests and implementation reviews are not independent scientific replication. The project’s current source and lab data remain local unless a public source is explicitly linked below.</p></div><section class="source-block" id="credits"><div class="source-block-head"><span class="mono">SOURCES & CREDIT</span><h2>Built on the work of others</h2></div><div class="source-list"><div class="source-item"><span class="mono">01</span><div><a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js contributors <span aria-hidden="true">↗</span></a><p>Runtime used for the persistent TypeScript simulation and browser-data service. The population mechanics and evaluation are documented as local experimental work.</p></div></div></div></section><div class="article-links"><a class="button button-outline" href="/notes/when-the-benchmark-lies/">Related evaluation note <span aria-hidden="true">↗</span></a></div></article></div>
+      <section class="detail-next wrap"><span class="mono">KEEP EXPLORING</span><a href="/experiments/forgegrad/">ForgeGrad <span aria-hidden="true">↗</span></a></section>
+    </main>
+  <footer class="site-footer wrap">
+    <a class="footer-signature" href="/">Jancarlos Espinal<span>Always a work in progress.</span></a>
+    <div class="footer-links"><a href="/projects/">Workbench <span aria-hidden="true">↗</span></a><a href="/research/">Research <span aria-hidden="true">↗</span></a><a href="/lab/">Homelab <span aria-hidden="true">↗</span></a><a href="/credits/">Credits <span aria-hidden="true">↗</span></a><a href="https://github.com/AizenKai1001" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="mailto:Jancarlos.espinal.gonzalez@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+    <div class="footer-bottom"><p>© 2026 · Made with curiosity.</p><div class="motion-settings"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause page animations"><span aria-hidden="true">Ⅱ</span> Pause motion</button><button class="motion-reset" type="button" title="Use your device's motion preference">Use device setting</button></div></div>
+  </footer></body></html>

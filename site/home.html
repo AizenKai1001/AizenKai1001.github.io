@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- HEAD -->
+</head>
+<body id="top">
+  <!-- HEADER -->
+  <main id="main">
+    <section class="hero wrap kinetic-hero" aria-labelledby="hero-title">
+      <div class="hero-track">
+      <div class="hero-copy" data-journey-mode="intelligence" id="study-learning">
+        <div class="eyebrow mono"><span class="small-dot"></span> An independent research notebook</div>
+        <h1 id="hero-title"><span class="hero-line"><span>How does</span></span><span class="hero-line"><span><em>intelligence</em></span></span><span class="hero-line"><span>emerge?</span></span></h1>
+        <p class="hero-intro">I’m Jancarlos. I build AI experiments to explore learning, memory, and behavior—and follow the evidence wherever it leads.</p>
+        <div class="hero-actions"><a class="button" href="#experiments">Explore the experiments <span aria-hidden="true">↗</span></a><a class="quiet-link" href="#about">About my work <span aria-hidden="true">→</span></a></div>
+        <div class="hero-footnote"><span class="mono">LEARNING BY BUILDING</span><span>Small systems. Open questions.</span></div>
+        <a class="hero-index-link" href="/projects/">Explore the full workbench <span aria-hidden="true">↗</span></a>
+        <a class="journey-scroll mono" href="#study-simulation"><span aria-hidden="true">↓</span> Scroll to change the experiment</a>
+      </div>
+      <section class="journey-step" data-journey-mode="worlds" id="study-simulation" aria-labelledby="simulation-title">
+        <span class="section-kicker mono">02 / PUT IT IN A WORLD</span>
+        <h2 id="simulation-title">Behavior needs<br><em>somewhere to happen.</em></h2>
+        <p>Give a system a body, an environment, and a consequence. Then ask whether its apparent progress survives a better test.</p>
+        <div class="journey-links"><a class="text-link" href="/experiments/evoforge/">EvoForge <span aria-hidden="true">↗</span></a><a class="text-link" href="/experiments/forgelab/">ForgeLab <span aria-hidden="true">↗</span></a></div>
+        <span class="journey-note mono">ARTIFICIAL LIFE / NEUROEVOLUTION / CONTROLS</span>
+      </section>
+      <section class="journey-step" data-journey-mode="systems" id="study-systems" aria-labelledby="systems-title">
+        <span class="section-kicker mono">03 / LOOK INSIDE THE MACHINE</span>
+        <h2 id="systems-title">Build it.<br><em>Take it apart.</em></h2>
+        <p>I build runtimes and learning tools to inspect what happens between an input and a prediction. The machinery is part of the question.</p>
+        <div class="journey-links"><a class="text-link" href="/experiments/forgegrad/">ForgeGrad <span aria-hidden="true">↗</span></a><a class="text-link" href="/experiments/distinction/">Distinction AI <span aria-hidden="true">↗</span></a></div>
+        <a class="journey-scroll mono" href="#experiments"><span aria-hidden="true">↓</span> See the experiments and results</a>
+      </section>
+      </div>
+      <div class="hero-visual">
+        <div class="scene-topline"><span class="mono">THE RESEARCH COLLECTION / 01—03</span><span class="scene-cross" aria-hidden="true">+</span></div>
+        <div class="scene-stage" id="research-scene" role="img" aria-label="An original animated branching neuron with traveling signals; an artistic study rather than a live experiment.">
+          <div class="scene-poster"><img class="poster-light" src="/media/research-study.webp" alt="" width="1000" height="1000" fetchpriority="high"><img class="poster-dark" src="/media/research-study-dark.webp" alt="" width="1000" height="1000" loading="lazy"></div>
+        </div>
+        <div class="scene-bottomline"><span id="scene-caption" class="mono">01 / SIGNAL & STRUCTURE</span><span class="scene-hint" id="scene-hint">Drag to explore <span aria-hidden="true">↔</span></span></div>
+        <div class="scene-playback"><span id="scene-motion-state" class="mono" role="status">Loading 3D study…</span><button id="scene-play" type="button" hidden><span aria-hidden="true">▷</span> Play animations</button></div>
+        <div class="scene-controls" aria-label="Interactive study controls">
+          <div class="mode-buttons" role="group" aria-label="Choose a study"><button type="button" data-scene-mode="intelligence" aria-pressed="true">01 <span>Learning</span></button><button type="button" data-scene-mode="worlds" aria-pressed="false">02 <span>Simulation</span></button><button type="button" data-scene-mode="systems" aria-pressed="false">03 <span>Systems</span></button></div>
+          <button class="scene-pause" id="scene-pause" type="button" aria-pressed="false" aria-label="Pause animations"><span aria-hidden="true">Ⅱ</span><span class="playback-label">Pause</span></button>
+          <button class="scene-reset" id="scene-reset" type="button" aria-label="Reset scene view"><span aria-hidden="true">↺</span></button>
+        </div>
+        <p class="scene-art-note">Animated illustration · research results are documented below.</p>
+        <p class="sr-only" id="scene-status" aria-live="polite">A static illustration is available while the interactive study loads.</p>
+      </div>
+    </section>
+
+    <div class="research-band wrap"><span class="mono">CURRENT QUESTIONS</span><p>Learning without neural networks<span aria-hidden="true">✳</span>Brains in simulated worlds<span aria-hidden="true">✳</span>Better ways to test progress</p><a href="#experiments" aria-label="Scroll to experiments">↓</a></div>
+    <!-- LAB OVERVIEW -->
+
+    <section class="experiments-section wrap section-space" id="experiments" aria-labelledby="experiments-title">
+      <div class="section-heading"><div><span class="section-kicker mono">01 / THE EXPERIMENTS</span><h2 id="experiments-title">Questions,<br>turned into <em>systems.</em></h2></div><p>Working prototypes, controlled tests, and the occasional useful failure. Here’s what I’m investigating.</p></div>
+      <div class="experiment-toolbar"><div class="filter-buttons" role="group" aria-label="Filter experiments"><button type="button" data-filter="all" aria-pressed="true">All experiments <span>%%COUNT%%</span></button><button type="button" data-filter="learning" aria-pressed="false">Learning</button><button type="button" data-filter="simulation" aria-pressed="false">Simulation</button></div><span class="mono experiment-count" aria-live="polite">%%COUNT%% SELECTED STUDIES</span></div>
+      <div class="experiment-grid">
+        <!-- EXPERIMENTS -->
+      </div>
+      <div class="other-studies"><!-- OTHER STUDIES --></div>
+      <p class="experiments-footnote"><span aria-hidden="true">↳</span> A prototype is a starting point. Each experiment includes what worked, what didn’t, and what remains open.</p>
+    </section>
+
+    <!-- RESEARCH ATLAS -->
+    <!-- WORKBENCH -->
+    <!-- HOMELAB & HARDWARE -->
+    <section class="method-section" aria-labelledby="method-title"><div class="wrap method-inner">
+      <div class="method-intro"><span class="section-kicker mono">THE WAY I WORK</span><h2 id="method-title">Build the idea.<br>Question the <em>result.</em></h2><p>A changing weight, a higher score, or a convincing animation can be interesting. I want to know what caused it.</p><a href="#notebook" class="text-link">Inside the research notebook <span aria-hidden="true">↗</span></a></div>
+      <div class="method-steps"><div><span class="mono">01</span><h3>Ask something testable.</h3><p>Turn a broad idea into a small experiment with an observable outcome.</p></div><div><span class="mono">02</span><h3>Build in the controls.</h3><p>Compare baselines, remove helpful inputs, and test the simpler explanation.</p></div><div><span class="mono">03</span><h3>Keep the whole result.</h3><p>Record the evidence, the limitations, and the correction when the story changes.</p></div></div>
+    </div></section>
+
+    <section class="notebook-section wrap section-space" id="notebook" aria-labelledby="notebook-title"><div class="section-heading"><div><span class="section-kicker mono">05 / FIELD NOTES</span><h2 id="notebook-title">From the <em>notebook.</em></h2></div><p>Ideas worth keeping, assumptions worth revisiting, and lessons from the experiments.</p></div><div class="notebook-list">
+      <!-- NOTES -->
+    </div><p class="notebook-caption mono">SELECTED NOTES FROM MY OBSIDIAN RESEARCH VAULT · SEPTEMBER 2026</p></section>
+
+    <!-- CREDIT BAND -->
+    <section class="about-section wrap section-space" id="about" aria-labelledby="about-title">
+      <div class="about-stamp" aria-hidden="true"><span class="stamp-top mono">CURIOSITY → CODE → EVIDENCE</span><span class="stamp-symbol">✳</span><span class="stamp-bottom mono">ALWAYS ASKING WHY</span></div>
+      <div class="about-copy"><span class="section-kicker mono">03 / BEHIND THE EXPERIMENTS</span><h2 id="about-title">Curiosity is<br>the <em>starting point.</em></h2><p class="about-lead">I’m Jancarlos Espinal, a developer in Rhode Island exploring how intelligent behavior can arise from simple parts.</p><p>I’m drawn to the questions underneath AI: how a system learns from mistakes, what memory changes, and whether an agent’s apparent progress survives a better test.</p><p>I work hands-on, with AI coding tools as part of the process. My Obsidian vault connects the reading, implementation notes, measurements, and corrections. This site is a window into that work.</p><div class="about-focus"><span class="mono">WORKING WITH</span><p>Python · TypeScript · C++ · NumPy · Simulation · Custom runtimes</p></div></div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner"><div><span class="section-kicker mono">GOOD QUESTIONS ARE BETTER SHARED</span><h2 id="contact-title">Let’s compare <em>notes.</em></h2><p>Exploring AI, simulation, or a question that won’t leave you alone? I’d like to hear about it.</p></div><div class="contact-actions"><a class="button" href="mailto:%%EMAIL%%">Start a conversation <span aria-hidden="true">↗</span></a><a class="text-link" href="%%GITHUB%%" target="_blank" rel="noopener noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
+  <!-- FOOTER -->
+</body>
+</html>
