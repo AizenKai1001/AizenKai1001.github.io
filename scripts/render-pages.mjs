@@ -3,6 +3,7 @@ import { dirname } from 'node:path';
 import { identity, experiments, notes } from '../src/content.js';
 import { homeExpansion, renderExpansion, expansionRoutes, creditsBlock, projectRecords } from './render-expansion.mjs';
 import { labShowcase, renderLabPage } from './render-lab.mjs';
+import { renderWidgetPage } from './render-observatory.mjs';
 import { featuredCredits } from '../src/credits.js';
 
 const escape = (value) => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -37,6 +38,7 @@ const head = (title, description, path = '/') => `
   <link rel="stylesheet" href="/src/experience.css">
   <link rel="stylesheet" href="/src/atlas.css">
   <link rel="stylesheet" href="/src/lab.css">
+  <link rel="stylesheet" href="/src/observatory.css">
   <script type="module" src="/src/main.js"></script>`;
 
 const header = `
@@ -141,6 +143,7 @@ for (const [from, to] of Object.entries(redirects)) write(`public/${from}/index.
 
 renderExpansion({ head, header, footer, write });
 renderLabPage({ head, header, footer, write, projectRecords });
+renderWidgetPage({ head, header, footer, write, creditsBlock });
 // Dependency notices travel with the static output; no font files are redistributed.
 const threeLicense = readFileSync('node_modules/three/LICENSE','utf8');
 write('public/notices.txt', `WEBSITE DEPENDENCY NOTICES\n\nThree.js (rendering engine and addons)\n${threeLicense}\n\nOther software, typography, research, and visual references are credited at /credits/.\n`);

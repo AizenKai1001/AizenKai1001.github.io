@@ -19,7 +19,8 @@
     "test:expansion": "node scripts/check-expansion.mjs",
     "check:sources": "node scripts/check-source-links.mjs",
     "test:lab": "node scripts/check-lab.mjs",
-    "check:publication": "node scripts/check-publication.mjs"
+    "check:publication": "node scripts/check-publication.mjs",
+    "test:observatory": "node scripts/check-observatory.mjs"
   },
   "dependencies": {
     "three": "0.186.0"

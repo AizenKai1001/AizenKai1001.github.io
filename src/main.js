@@ -2,12 +2,14 @@ import { createThemeController } from './theme.js';
 import { createMotionController } from './motion.js';
 import { createJourney } from './journey.js';
 import { createExplorer } from './explorer.js';
+import { createObservatory } from './observatory.js';
 
 // All research content is static HTML. These modules progressively enhance it.
 document.documentElement.classList.add('js');
 const theme = createThemeController();
 const motion = createMotionController();
 const explorer = createExplorer(motion);
+const observatory = createObservatory(motion);
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 function closeMenu(returnFocus = false) {
@@ -124,6 +126,7 @@ window.addEventListener('pagehide', event => {
   scene?.dispose();
   journey?.dispose();
   explorer.dispose();
+  observatory.dispose();
   motion.dispose();
   theme.dispose();
 });

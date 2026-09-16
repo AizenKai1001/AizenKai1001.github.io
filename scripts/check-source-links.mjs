@@ -5,6 +5,8 @@ import path from 'node:path';
 
 import { researchTopics } from '../src/research.js';
 import { featuredCredits, siteCredits } from '../src/credits.js';
+import { systemGroups } from '../src/lab-systems.js';
+import { widgetStudies } from '../src/widget-studies.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -188,6 +190,12 @@ function collectReferences() {
     });
   }
 
+  for (const group of systemGroups) {
+    for (const credit of group.credits) addOccurrence(refs, { ...credit, source: 'lab-system', owner: group.id });
+  }
+  for (const widget of widgetStudies) {
+    for (const credit of widget.credits) addOccurrence(refs, { ...credit, source: 'widget-study', owner: widget.id });
+  }
   return refs;
 }
 

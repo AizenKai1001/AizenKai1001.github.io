@@ -92,7 +92,7 @@ export function createMotionController() {
   const ambientObserver = typeof IntersectionObserver === 'function' ? new IntersectionObserver(entries => {
     for (const entry of entries) entry.target.classList.toggle('ambient-visible', entry.isIntersecting);
   }, { threshold: 0.05 }) : null;
-  document.querySelectorAll('.hero-visual, .about-stamp, .diagram-visual, .research-band, .research-atlas, .archive-card, .hardware-card').forEach(el => ambientObserver?.observe(el));
+  document.querySelectorAll('.hero-visual, .about-stamp, .diagram-visual, .research-band, .research-atlas, .archive-card, .hardware-card, [data-widget-art]').forEach(el => ambientObserver?.observe(el));
 
   function updateScroll() {
     scrollFrame = 0;

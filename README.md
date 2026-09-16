@@ -33,6 +33,8 @@ The build output is `dist/`. The initial build warning about the Three.js chunk 
 | `src/credits.js` | Featured-project lineage, website software, typography, and creator credits |
 | `src/lab-projects.js`, `scripts/render-lab.mjs` | Homelab platform, host observability and Raspberry Pi Pico project stories plus the dedicated lab page |
 | `src/lab-visuals.js`, `src/lab.css` | Original animated concept illustrations; no private topology or live lab data |
+| `src/lab-systems.js`, `src/widget-studies.js` | Dated observations of service groups and ten source-backed widget studies |
+| `scripts/render-observatory.mjs`, `src/observatory.js`, `src/observatory.css` | Static systems catalog, widget collection, filters, deep links and schematic previews |
 | `src/explorer.js`, `src/atlas.css` | Search, filters, layout switching, keyboard-accessible atlas, and archive design |
 | `site/home.html` | Homepage layout and copy |
 | `src/style.css` | Shared desktop/mobile design |
@@ -56,6 +58,8 @@ Edit the source template/data rather than generated root, experiment, or note HT
 The wider archive is at `/projects/`, research dossiers at `/research/`, and acknowledgments at `/credits/`. Search/filter/sort/layout state is reflected in the URL. The homepage research atlas can be operated by mouse, touch, or arrow keys; the underlying links and all index content remain available without JavaScript. Public records exclude private workspace paths, service coordinates, account data, and secrets. Historical projects are clearly labeled, including the deleted physics-engine implementation.
 
 The `/lab/` page connects self-hosting, automation, host-network observability and Pico microcontroller audio work. Public notes retain implementation boundaries and upstream credit while omitting operational identifiers. `npm run test:lab` checks the new pages, source links within the site, motion controls, layout and accessibility. Before release, `npm run check:publication` scans the source, built output and outgoing commit snapshots for private information. Internal evidence-path notes are kept outside the published tree.
+
+The systems section records a dated, read-only deployment observation rather than querying infrastructure from visitors' browsers. `/lab/widgets/` presents ten widget studies, with six active families distinguished from stored configurations and decorative Lua/Cairo work. Real desktop screenshots, quota readings, logs, network labels and media activity remain private. Original schematic previews illustrate the interface without inventing measurements.
 
 Every source has a relationship note: a method being studied, an upstream implementation being extended, a library being used, or a visual reference. Typography is linked to official font pages rather than copied into the repository. `public/notices.txt` includes the Three.js license with the static output. Project captures retain their recorded-version and asset-provenance captions.
 

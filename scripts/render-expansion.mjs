@@ -3,6 +3,8 @@ import { catalogProjects } from '../src/catalog.js';
 import { researchTopics } from '../src/research.js';
 import { featuredCredits, siteCredits, projectKind } from '../src/credits.js';
 import { labIllustration } from '../src/lab-visuals.js';
+import { systemGroups } from '../src/lab-systems.js';
+import { widgetStudies } from '../src/widget-studies.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const arrow = '<span aria-hidden="true">↗</span>';
@@ -27,6 +29,8 @@ function collectSource(source, usedBy, type) {
 projectRecords.forEach(p => (p.credits || []).forEach(c => collectSource(c, { label: p.name, href: p.href }, 'Project source')));
 researchTopics.forEach(r => r.references.forEach(c => collectSource(c, { label: r.title, href: `/research/${r.id}/` }, 'Research source')));
 siteCredits.forEach(c => collectSource(c, { label: 'This portfolio', href: '/' }, c.type));
+systemGroups.forEach(group => group.credits.forEach(c => collectSource(c, { label: group.title, href: '/lab/#systems' }, 'Lab platform')));
+widgetStudies.forEach(widget => widget.credits.forEach(c => collectSource(c, { label: widget.title, href: `/lab/widgets/#${widget.id}` }, 'Widget tooling')));
 export const sourceRecords = [...uniqueSources.values()].sort((a, b) => a.label.localeCompare(b.label));
 const projectImages = {
   realmforge: { src:'/media/realmforge-editor.webp', caption:'Recorded RealmForge editor view; cropped above the console.' },
@@ -116,7 +120,7 @@ const researchConnections = {
   'spacetime-gravity-problem-time':['archived-physics-engine'],
   'time-entropy-information':['archived-physics-engine']
 };
-const expansionRoutes = ['/projects/','/research/','/credits/','/lab/',...catalogProjects.map(p=>`/projects/${p.id}/`),...researchTopics.map(r=>`/research/${r.id}/`)];
+const expansionRoutes = ['/projects/','/research/','/credits/','/lab/','/lab/widgets/',...catalogProjects.map(p=>`/projects/${p.id}/`),...researchTopics.map(r=>`/research/${r.id}/`)];
 export { expansionRoutes };
 
 export function renderExpansion({ head, header, footer, write }) {
